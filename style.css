@@ -1,0 +1,323 @@
+body{
+    background: linear-gradient(135deg, #1a1a2e, #0f3460, #16213e);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    margin: 0px; 
+    padding: 40px 20px;
+    animation: gradientShift 10s ease infinite;
+}
+
+#terminal-hero{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    background-color: #050816;
+    border-radius: 15px;
+    border: 2px solid #00ffff;
+    padding: 20px;
+    color: #00ffff;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+#terminal-header{
+    margin-bottom: 12px;
+}
+
+.terminal-dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.terminal-dot.red{
+    background-color: #ff5f57;
+}
+
+.terminal-dot.yellow{
+    background-color: #febc2e;
+}
+
+.terminal-dot.green{
+    background-color: #28c840;
+}
+
+#terminal-body{
+    line-height: 1.6;
+}
+
+.terminal-line{
+    margin: 3px 0;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+h1{
+    color: white;
+    font-family: "Press Start 2P";
+    text-align: center; 
+    margin-bottom: 60px;
+    text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+    font-size: 80px;
+    
+}
+
+h2{
+    color: white;
+    font-family: "Press Start 2P";
+    text-align: center; 
+    margin-bottom: 60px;
+    text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+    font-size: 40px;
+}
+
+#image1{
+    display: block; 
+    height: auto; 
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    border: 5px solid #ff6b9d;
+    border-radius: 15px;
+}
+
+#box3{
+    color: white; 
+    font-family: "Press Start 2P"; 
+    font-style: italic;
+    font-weight: bold;
+    border-left: 5px solid #ff6b9d;
+    border-right: 5px solid #ff6b9d;
+    border-radius: 12px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.8;
+    width: 600px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #050816;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+p{
+    border-radius: 12px; 
+    padding: 25px 30px; 
+    margin: 25px auto;
+    max-width: 700px;
+}
+
+
+#p1{
+    color: white; 
+    font-family: "Press Start 2P"; 
+    font-style: italic;
+    font-weight: bold;
+    border-left: 5px solid #00ffff;
+    border-right: 5px solid #00ffff;
+    border-radius: 12px;
+    font-size: 11px; 
+    text-align: center; 
+    line-height: 1.8;
+    background-color: #050816;
+
+}
+
+#p2{
+    color: white; 
+    font-family: "Press Start 2P"; 
+    font-style: italic;
+    font-weight: bold;
+    border-left: 5px solid #ff6b9d;
+    border-right: 5px solid #ff6b9d;
+    border-radius: 12px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    background-color: #050816;
+}
+
+#skills-container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;   /* controls left/center/right for all boxes */
+}
+
+.skill-row{
+    margin-bottom: 30px;
+}
+
+.skill-box{
+    display: inline-block;   /* lets boxes sit next to each other */
+    vertical-align: top;
+    width: 210px;
+    height: 210px;
+    border: 5px solid #00ffff;
+    border-radius: 15px;
+    margin: 0 30px;          /* space between boxes */
+    text-align: center;
+    font-family: "Press Start 2P";
+    padding: 20px;
+    background-color: #050816;
+    color: white;
+}
+
+#projects-container{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-text{
+    color: white;
+    font-family: "Press Start 2P";
+    background-color: #050816;
+    border-left: 5px solid #ff6b9d;
+    border-right: 5px solid #ff6b9d;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.project-title{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.project-link a{
+    color: #00ffff;
+    text-decoration: none;
+}
+
+.project-link a:hover{
+    text-decoration: underline;
+}
+
+/* Contact section */
+
+.contact-container{
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.contact-form{
+    background-color: #050816;
+    border-left: 5px solid #00ffff;
+    border-right: 5px solid #00ffff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    font-family: "Press Start 2P";
+    color: white;
+}
+
+.contact-title h3{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.contact-title hr{
+    border: none;
+    border-top: 2px solid #ff6b9d;
+    margin-bottom: 20px;
+}
+
+.contact-label{
+    display: block;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.contact-input{
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #00ffff;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background-color: #020617;
+    color: white;
+    font-family: inherit;
+    font-size: 10px;
+}
+
+.contact-textarea{
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #ff6b9d;
+    background-color: #ff6b9d;
+    color: #050816;
+    font-family: "Press Start 2P";
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.contact-button:hover{
+    background-color: #ff8ab5;
+}
+
+
+
+
+.fa-python {
+    color: pink;
+    font-size: 150px; 
+}
+
+.fa-java {
+    color: pink;
+    font-size: 150px; 
+}
+
+.fa-js {
+    color: pink;
+    font-size: 150px; 
+}
+
+.fa-html5 {
+    color: pink;
+    font-size: 150px; 
+}
+
+.fa-css3-alt {
+    color: pink;
+    font-size: 150px; 
+}
+
+.fa-react {
+    color: pink;
+    font-size: 150px; 
+}
+
+
+
+
