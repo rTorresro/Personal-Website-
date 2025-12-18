@@ -139,9 +139,8 @@
 
     <section id="contact">
         <h2>Contact</h2>
-
-        <div class="contact-container">
-            <form action="" class="contact-form">
+        <form action="https://formspree.io/f/xvzppbqj" method="POST" class="contact-form">
+            <div class="contact-container">
                 <div class="contact-title">
                     <h3>Shoot me an email! My inbox is always open for any conversation.</h3>
                     <hr>
@@ -160,8 +159,9 @@
                 <textarea id="contact-message" name="message" placeholder="Your message" class="contact-input contact-textarea" required></textarea>
 
                 <button type="submit" class="contact-button">Send</button>
-            </form>
-        </div>
+                <div id="form-status" class="form-status"></div>
+            </div>
+        </form>
     </section>
 
 

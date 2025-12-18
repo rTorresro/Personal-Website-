@@ -60,6 +60,58 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   typeLine();
+
+  // Handle contact form submission
+  const contactForm = document.querySelector(".contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const statusDiv = document.getElementById("form-status");
+      const submitButton = contactForm.querySelector(".contact-button");
+      
+      // Disable button and show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      statusDiv.textContent = "";
+      statusDiv.className = "form-status";
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      
+      // Submit to Formspree
+      fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          statusDiv.textContent = "Message sent successfully!";
+          statusDiv.className = "form-status success";
+          contactForm.reset();
+        } else {
+          return response.json().then(data => {
+            if (data.error) {
+              throw new Error(data.error);
+            } else {
+              throw new Error("Something went wrong. Please try again.");
+            }
+          });
+        }
+      })
+      .catch(error => {
+        statusDiv.textContent = error.message || "Failed to send message. Please try again.";
+        statusDiv.className = "form-status error";
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send";
+      });
+    });
+  }
 });
 
 
