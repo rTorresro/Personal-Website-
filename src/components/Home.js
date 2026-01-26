@@ -29,7 +29,7 @@ function Home() {
           <i className="fab fa-linkedin"></i>
         </a>
         <a
-          href="https://instagram.com/rogertorres_"
+          href="https://instagram.com/rogertorres__"
           target="_blank"
           className="social-link"
           aria-label="Instagram"
