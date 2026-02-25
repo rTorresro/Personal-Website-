@@ -130,6 +130,24 @@ const PROJECTS = [
     status: "WIP"
   },
   {
+    title: "ProjectPilot",
+    description:
+      "An AI-powered chatbot that generates personalized project ideas for your resume. Built with Python, Streamlit, and OpenAI GPT.",
+    link: "https://github.com/rTorresro/Project-Pilot"
+  },
+  {
+    title: "Statmind",
+    description:
+      "A basketball analytics project that explores NBA data, trends, and storytelling through real-world datasets and insights.",
+    link: "https://github.com/rTorresro/Statmind"
+  },
+  {
+    title: "Spotify Analyzer",
+    description:
+      "A Python app that analyzes your Spotify playlists to uncover tempo patterns, energy-valence relationships, top artists, and mood classification.",
+    link: "https://github.com/rTorresro/Spotify-Analyzer"
+  },
+  {
     title: "StockSight",
     description:
       "A full-stack web app for real-time stock tracking and ML-powered next-day predictions using Alpha Vantage data and linear regression. Built with Flask, scikit-learn, Pandas, and NumPy.",
