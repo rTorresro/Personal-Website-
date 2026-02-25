@@ -1,25 +1,19 @@
-function Navbar({ activeSection, onSectionChange }) {
-  const sections = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About Me" },
-    { id: "resume", label: "Resume" },
-    { id: "contact", label: "Contact" }
-  ];
-
+function Navbar() {
   return (
     <nav className="navbar">
       <ul>
-        {sections.map((section) => (
-          <li key={section.id}>
-            <button
-              type="button"
-              className={`nav-tab${activeSection === section.id ? " active" : ""}`}
-              onClick={() => onSectionChange(section.id)}
-            >
-              {section.label}
-            </button>
-          </li>
-        ))}
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about">About Me</a>
+        </li>
+        <li>
+          <a href="#resume">Resume</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
       </ul>
     </nav>
   );
