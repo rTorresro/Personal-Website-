@@ -29,9 +29,27 @@ function Projects() {
             <div className="project-text">
               <p className="project-title">
                 {project.title}
-                {project.status ? ` • ${project.status}` : ""}
+                {project.status ? (
+                  <span className="project-status-badge">{project.status}</span>
+                ) : null}
               </p>
               <p className="project-description">{project.description}</p>
+              {project.stack?.length ? (
+                <div className="project-stacks">
+                  {project.stack.map((item) => (
+                    <span className="project-stack" key={`${project.title}-${item}`}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+              {project.outcomes?.length ? (
+                <ul className="project-outcomes">
+                  {project.outcomes.map((outcome, index) => (
+                    <li key={`${project.title}-outcome-${index}`}>{outcome}</li>
+                  ))}
+                </ul>
+              ) : null}
               {project.link ? (
                 <p className="project-link">
                   <a href={project.link} target="_blank" rel="noreferrer">

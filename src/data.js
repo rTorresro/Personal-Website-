@@ -20,6 +20,9 @@ const NAME_LETTERS = Array.from("Roger Torres");
 const ABOUT_TEXT =
   "I'm Roger Torres, an 18-year-old Computer Science freshman at the University of Pittsburgh. I built this site to grow as a developer, with a focus on full-stack work that blends logic, design, and products that solve real problems. Outside of coding, I like films/TV (Mr. Robot, The Wire, The Sopranos), anime and manga (Berserk, Vinland Saga, Dragon Ball Z), gaming, lifting, and the occasional dive into philosophy. I'm excited to keep building new projects, learning more software engineering, and moving toward independence.";
 
+const PORTFOLIO_NARRATIVE =
+  "I design products that feel calm, intentional, and useful. My work blends clean UI with dependable backends, and I care most about clarity, performance, and solving real problems for real people.";
+
 const RESUME_SKILL_HIGHLIGHTS = [
   {
     icon: "fas fa-laptop-code",
@@ -38,10 +41,12 @@ const RESUME_SKILL_HIGHLIGHTS = [
 const SKILL_GROUPS = [
   {
     title: "Languages",
+    icon: "fas fa-code",
     items: ["Java", "Python", "C++", "JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
     title: "Frameworks",
+    icon: "fas fa-layer-group",
     items: [
       "React",
       "Next.js",
@@ -54,10 +59,12 @@ const SKILL_GROUPS = [
   },
   {
     title: "Databases",
+    icon: "fas fa-database",
     items: ["PostgreSQL"]
   },
   {
     title: "Tools",
+    icon: "fas fa-toolbox",
     items: [
       "Git",
       "GitHub",
@@ -115,42 +122,77 @@ const PROJECTS = [
     description:
       "A personalized watchlist platform that organizes movies and shows with smart filters and viewing analytics. Built with a Node/Express backend and a React + TypeScript UI.",
     link: "https://github.com/rTorresro/Queued",
-    status: "WIP"
+    status: "WIP",
+    stack: ["Node.js", "Express", "React", "TypeScript", "TMDB API"],
+    outcomes: [
+      "Built personalized watchlists with smart filters and preferences.",
+      "Designed analytics views to surface viewing trends."
+    ]
   },
   {
     title: "RunIt Pittsburgh",
     description:
       "A real-time basketball court finder that helps players discover games, check in, and organize pickup runs. Built with React, Vite, Firebase, Leaflet, and Tailwind CSS.",
-    link: "https://github.com/rTorresro/RunIt-Pittsburgh-"
+    link: "https://github.com/rTorresro/RunIt-Pittsburgh-",
+    stack: ["React", "Vite", "Firebase", "Leaflet", "Tailwind CSS"],
+    outcomes: [
+      "Mapped courts with live check-ins and game status updates.",
+      "Implemented authentication and real-time data sync for players."
+    ]
   },
   {
     title: "Pulseboard",
     description:
       "A task analytics dashboard that turns daily tracking into live metrics and streak insights. Spring Boot, React, TypeScript, and PostgreSQL.",
-    status: "WIP"
+    status: "WIP",
+    stack: ["Spring Boot", "React", "TypeScript", "PostgreSQL"],
+    outcomes: [
+      "Modeled task data into weekly totals, streaks, and trends.",
+      "Built backend services for user-scoped analytics."
+    ]
   },
   {
     title: "ProjectPilot",
     description:
       "An AI-powered chatbot that generates personalized project ideas for your resume. Built with Python, Streamlit, and OpenAI GPT.",
-    link: "https://github.com/rTorresro/Project-Pilot"
+    link: "https://github.com/rTorresro/Project-Pilot",
+    stack: ["Python", "Streamlit", "OpenAI API"],
+    outcomes: [
+      "Generated tailored project ideas from skills and interests.",
+      "Guided users with a simple, chat-style UX."
+    ]
   },
   {
     title: "Statmind",
     description:
       "A basketball analytics project that explores NBA data, trends, and storytelling through real-world datasets and insights.",
-    link: "https://github.com/rTorresro/Statmind"
+    link: "https://github.com/rTorresro/Statmind",
+    stack: ["Python", "Pandas", "Data Visualization"],
+    outcomes: [
+      "Cleaned and analyzed NBA datasets to surface trends.",
+      "Built visual stories to explain player and team patterns."
+    ]
   },
   {
     title: "Spotify Analyzer",
     description:
       "A Python app that analyzes your Spotify playlists to uncover tempo patterns, energy-valence relationships, top artists, and mood classification.",
-    link: "https://github.com/rTorresro/Spotify-Analyzer"
+    link: "https://github.com/rTorresro/Spotify-Analyzer",
+    stack: ["Python", "Spotify API", "Pandas"],
+    outcomes: [
+      "Extracted playlist data to quantify mood and tempo trends.",
+      "Summarized listening patterns with clear visual insights."
+    ]
   },
   {
     title: "StockSight",
     description:
       "A full-stack web app for real-time stock tracking and ML-powered next-day predictions using Alpha Vantage data and linear regression. Built with Flask, scikit-learn, Pandas, and NumPy.",
-    link: "https://github.com/rTorresro/StockSight"
+    link: "https://github.com/rTorresro/StockSight",
+    stack: ["Flask", "scikit-learn", "Pandas", "NumPy", "Alpha Vantage API"],
+    outcomes: [
+      "Built a live dashboard with real-time market data.",
+      "Trained ML models to forecast next-day price movement."
+    ]
   }
 ];

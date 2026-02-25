@@ -36,7 +36,12 @@ function Resume() {
           <div className="skill-groups">
             {SKILL_GROUPS.map((group) => (
               <div className="skill-group" key={group.title}>
-                <h4>{group.title}</h4>
+                <div className="skill-group-header">
+                  <div className="skill-group-icon">
+                    <i className={group.icon}></i>
+                  </div>
+                  <h4>{group.title}</h4>
+                </div>
                 <div className="skill-chips">
                   {group.items.map((item) => (
                     <span className="skill-chip" key={item}>
@@ -64,18 +69,45 @@ function Resume() {
             </button>
             <div className="project-card reveal-text revealed">
               <div className="project-text">
-                <p className="project-title">{project.title}</p>
+                <p className="project-title">
+                  {project.title}
+                  {project.status ? (
+                    <span className="project-status-badge">{project.status}</span>
+                  ) : null}
+                </p>
                 <p className="project-description">{project.description}</p>
+                {project.stack?.length ? (
+                  <div className="project-stacks">
+                    {project.stack.map((item) => (
+                      <span className="project-stack" key={`${project.title}-${item}`}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                {project.outcomes?.length ? (
+                  <ul className="project-outcomes">
+                    {project.outcomes.map((outcome, index) => (
+                      <li key={`${project.title}-outcome-${index}`}>{outcome}</li>
+                    ))}
+                  </ul>
+                ) : null}
                 <div className="project-link">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-link-button"
-                  >
-                    <i className="fab fa-github"></i>
-                    <span>View on GitHub</span>
-                  </a>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-link-button"
+                    >
+                      <i className="fab fa-github"></i>
+                      <span>View on GitHub</span>
+                    </a>
+                  ) : (
+                    <span className="project-link-placeholder">
+                      Repo coming soon
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

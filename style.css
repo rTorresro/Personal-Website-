@@ -1,5 +1,18 @@
+:root{
+    --bg-1: #0b1120;
+    --bg-2: #111827;
+    --bg-3: #0f172a;
+    --panel: rgba(10, 18, 36, 0.9);
+    --ink: #0b1120;
+    --accent-cyan: #37e8d6;
+    --accent-pink: #f472b6;
+    --accent-pink-soft: #f8a1c7;
+    --text: #f8fafc;
+    --muted: rgba(248, 250, 252, 0.7);
+}
+
 body{
-    background: linear-gradient(135deg, #1a1a2e, #0f3460, #16213e);
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
     background-size: 400% 400%;
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -8,6 +21,7 @@ body{
     animation: gradientShift 10s ease infinite;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    color: var(--text);
 }
 
 body.show-cursor-trail{
@@ -20,7 +34,7 @@ body.show-cursor-trail{
     left: 0;
     width: 0%;
     height: 4px;
-    background: linear-gradient(90deg, #00ffff, #ff6b9d);
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
     z-index: 10000;
     transition: width 0.1s ease-out;
 }
@@ -40,7 +54,7 @@ body.show-cursor-trail{
     position: absolute;
     width: 3px;
     height: 3px;
-    background-color: #00ffff;
+    background-color: var(--accent-cyan);
     border-radius: 50%;
     opacity: 0.6;
     animation: floatParticle 15s infinite ease-in-out;
@@ -167,7 +181,7 @@ body.show-cursor-trail{
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: #00ffff;
+    background-color: var(--accent-cyan);
     pointer-events: none;
     z-index: 10000;
     transition: transform 0.1s ease;
@@ -191,10 +205,10 @@ body.terminal-active #scroll-progress{
     right: 30px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #00ffff, #ff6b9d);
-    border: 3px solid #00ffff;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+    border: 3px solid var(--accent-cyan);
     border-radius: 50%;
-    color: #050816;
+    color: var(--ink);
     font-size: 20px;
     cursor: pointer;
     opacity: 0;
@@ -215,7 +229,7 @@ body.terminal-active #scroll-progress{
 
 .scroll-to-top:hover{
     transform: translateY(-5px) scale(1.1);
-    border-color: #ff6b9d;
+    border-color: var(--accent-pink);
 }
 
 .scroll-to-top:active{
@@ -367,11 +381,11 @@ section#about{
 }
 
 .code-keyword{
-    color: #ff6b9d;
+    color: var(--accent-pink);
 }
 
 .code-variable{
-    color: #00ffff;
+    color: var(--accent-cyan);
 }
 
 .code-string{
@@ -383,11 +397,11 @@ section#about{
 }
 
 .code-function{
-    color: #00ffff;
+    color: var(--accent-cyan);
 }
 
 .code-property{
-    color: #ff8ab5;
+    color: var(--accent-pink-soft);
 }
 
 .code-operator{
@@ -413,7 +427,7 @@ section#about{
     max-width: 600px;
     height: 2px;
     margin: 60px auto;
-    background: linear-gradient(90deg, transparent, #00ffff, #ff6b9d, transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-pink), transparent);
     position: relative;
     z-index: 10;
     opacity: 0;
@@ -434,7 +448,7 @@ section#about{
     transform: translateX(-50%);
     width: 8px;
     height: 8px;
-    background: #00ffff;
+    background: var(--accent-cyan);
     border-radius: 50%;
     animation: pulseGlow 2s infinite;
 }
@@ -473,7 +487,7 @@ section#about{
 .animated-name{
     font-family: "Press Start 2P";
     font-size: 48px;
-    color: #00ffff;
+    color: var(--accent-cyan);
     text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.5);
     letter-spacing: 8px;
     display: inline-block;
@@ -535,11 +549,11 @@ html {
     top: 0;
     left: 0;
     margin: 0;
-    background-color: #050816;
+    background-color: var(--ink);
     border: none;
     border-radius: 0;
     padding: 40px;
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-family: monospace;
     font-size: 12px;
     z-index: 1000;
@@ -599,7 +613,7 @@ h1{
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 40px;
-    text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+    text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
     font-size: 56px;
     letter-spacing: 2px;
     transition: transform 0.2s ease;
@@ -616,7 +630,7 @@ h2{
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 20px;
-    text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+    text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
     font-size: 36px;
     letter-spacing: 1px;
     transition: transform 0.2s ease;
@@ -631,27 +645,27 @@ h2:hover{
 @keyframes glitch {
     0% {
         transform: translate(0);
-        text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
     }
     20% {
         transform: translate(-2px, 2px);
-        text-shadow: 4px 4px 8px black, -2px 2px 20px #ff6b9d, 2px -2px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, -2px 2px 20px var(--accent-pink), 2px -2px 20px var(--accent-cyan);
     }
     40% {
         transform: translate(-2px, -2px);
-        text-shadow: 4px 4px 8px black, 2px -2px 20px #ff6b9d, -2px 2px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, 2px -2px 20px var(--accent-pink), -2px 2px 20px var(--accent-cyan);
     }
     60% {
         transform: translate(2px, 2px);
-        text-shadow: 4px 4px 8px black, -2px -2px 20px #ff6b9d, 2px 2px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, -2px -2px 20px var(--accent-pink), 2px 2px 20px var(--accent-cyan);
     }
     80% {
         transform: translate(2px, -2px);
-        text-shadow: 4px 4px 8px black, 2px 2px 20px #ff6b9d, -2px -2px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, 2px 2px 20px var(--accent-pink), -2px -2px 20px var(--accent-cyan);
     }
     100% {
         transform: translate(0);
-        text-shadow: 4px 4px 8px black, 0px 0px 20px #00ffff;
+        text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
     }
 }
 
@@ -662,14 +676,14 @@ h2:hover{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-    border: 5px solid #ff6b9d;
+    border: 5px solid var(--accent-pink);
     border-radius: 20px;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 #image1:hover{
     transform: scale(1.05);
-    border-color: #ff8ab5;
+    border-color: var(--accent-pink-soft);
 }
 
 .resume-button-container{
@@ -680,8 +694,8 @@ h2:hover{
 .resume-button{
     display: inline-block;
     padding: 15px 35px;
-    background: linear-gradient(135deg, #00ffff, #ff6b9d);
-    color: #050816;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+    color: var(--ink);
     text-decoration: none;
     font-family: "Press Start 2P";
     font-size: 11px;
@@ -716,9 +730,9 @@ h2:hover{
     height: 50px;
     border-radius: 50%;
     background-color: rgba(5, 8, 22, 0.8);
-    border: 3px solid #00ffff;
+    border: 3px solid var(--accent-cyan);
     display: inline-block;
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-size: 22px;
     text-decoration: none;
     transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
@@ -731,9 +745,9 @@ h2:hover{
 
 .social-link:hover{
     transform: translateY(-5px) scale(1.1);
-    border-color: #ff6b9d;
+    border-color: var(--accent-pink);
     background-color: rgba(255, 107, 157, 0.2);
-    color: #ff6b9d;
+    color: var(--accent-pink);
 }
 
 .social-link:active{
@@ -752,8 +766,8 @@ p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
-    border-left: 5px solid #00ffff;
-    border-right: 5px solid #ff6b9d;
+    border-left: 5px solid var(--accent-cyan);
+    border-right: 5px solid var(--accent-pink);
     border-radius: 15px;
     font-size: 16px; 
     text-align: left; 
@@ -764,6 +778,35 @@ p{
     position: relative;
     z-index: 10;
     max-width: 760px;
+}
+
+.portfolio-narrative{
+    max-width: 760px;
+    margin: 0 auto 60px;
+    padding: 28px 32px;
+    border-radius: 16px;
+    background-color: rgba(2, 6, 23, 0.78);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    text-align: left;
+    color: var(--text);
+}
+
+.portfolio-narrative h3{
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--accent-cyan);
+    font-family: "Press Start 2P";
+    letter-spacing: 0.5px;
+}
+
+.portfolio-narrative p{
+    margin: 0;
+    padding: 0;
+    border: none;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
 }
 
 #skills-container{
@@ -781,7 +824,7 @@ p{
     vertical-align: top;
     width: 220px;
     height: 220px;
-    border: 5px solid #00ffff;
+    border: 5px solid var(--accent-cyan);
     border-radius: 18px;
     margin: 0 30px 40px 30px;
     text-align: center;
@@ -794,7 +837,7 @@ p{
 
 .skill-box:hover{
     transform: translateY(-5px);
-    border-color: #00ffff;
+    border-color: var(--accent-cyan);
     background-color: rgba(0, 255, 255, 0.1);
 }
 
@@ -821,7 +864,7 @@ p{
 .skill-progress-bar{
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #00ffff, #ff6b9d);
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
     border-radius: 10px;
     transition: width 1.5s ease-out;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
@@ -844,9 +887,9 @@ p{
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    border: 2px solid #00ffff;
+    border: 2px solid var(--accent-cyan);
     background-color: rgba(5, 8, 22, 0.85);
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-size: 16px;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
@@ -854,8 +897,8 @@ p{
 
 .project-nav-button:hover{
     transform: translateY(-2px);
-    border-color: #ff6b9d;
-    color: #ff6b9d;
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
     background-color: rgba(255, 107, 157, 0.1);
 }
 
@@ -868,8 +911,8 @@ p{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(5, 8, 22, 0.9);
-    border-left: 5px solid #ff6b9d;
-    border-right: 5px solid #ff6b9d;
+    border-left: 5px solid var(--accent-pink);
+    border-right: 5px solid var(--accent-pink);
     border-radius: 15px;
     padding: 35px 40px;
     font-size: 16px;
@@ -881,7 +924,7 @@ p{
 
 .project-text:hover{
     transform: translateX(5px);
-    border-color: #ff8ab5;
+    border-color: var(--accent-pink-soft);
     background-color: rgba(255, 107, 157, 0.1);
 }
 
@@ -889,7 +932,7 @@ p{
     margin-bottom: 20px;
     font-size: 18px;
     font-weight: bold;
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-family: "Press Start 2P";
     letter-spacing: 1px;
 }
@@ -900,12 +943,59 @@ p{
     line-height: 1.8;
 }
 
+.project-status-badge{
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--accent-pink);
+    border: 1px solid rgba(255, 107, 157, 0.5);
+    background-color: rgba(255, 107, 157, 0.15);
+    text-transform: uppercase;
+}
+
+.project-stacks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.project-stack{
+    padding: 6px 12px;
+    border-radius: 999px;
+    background-color: rgba(0, 255, 255, 0.12);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--text);
+    font-size: 12px;
+}
+
+.project-outcomes{
+    margin: 0;
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.project-outcomes li{
+    margin-bottom: 6px;
+}
+
 .project-link{
     margin-top: 25px;
 }
 
+.project-link-placeholder{
+    color: var(--muted);
+    font-size: 13px;
+}
+
 .project-link a{
-    color: #00ffff;
+    color: var(--accent-cyan);
     text-decoration: none;
     font-weight: bold; 
     font-size: 14px;
@@ -913,14 +1003,14 @@ p{
 }
 
 .project-link a:hover{
-    color: #ff6b9d;
+    color: var(--accent-pink);
     text-decoration: underline;
 }
 
 .project-indicator{
     margin-top: 16px;
     text-align: center;
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-family: "Press Start 2P";
     font-size: 9px;
 }
@@ -934,8 +1024,8 @@ p{
 
 .contact-form{
     background-color: rgba(5, 8, 22, 0.9);
-    border-left: 5px solid #00ffff;
-    border-right: 5px solid #00ffff;
+    border-left: 5px solid var(--accent-cyan);
+    border-right: 5px solid var(--accent-cyan);
     border-radius: 15px;
     padding: 40px 35px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -952,7 +1042,7 @@ p{
 
 .contact-title hr{
     border: none;
-    border-top: 2px solid #ff6b9d;
+    border-top: 2px solid var(--accent-pink);
     margin-bottom: 20px;
 }
 
@@ -962,7 +1052,7 @@ p{
     margin-top: 20px;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #00ffff;
+    color: var(--accent-cyan);
 }
 
 .contact-label:first-of-type{
@@ -972,7 +1062,7 @@ p{
 .contact-input{
     width: 100%;
     border-radius: 10px;
-    border: 2px solid #00ffff;
+    border: 2px solid var(--accent-cyan);
     padding: 12px 15px;
     margin-bottom: 15px;
     background-color: rgba(2, 6, 23, 0.8);
@@ -984,7 +1074,7 @@ p{
 
 .contact-input:focus{
     outline: none;
-    border-color: #ff6b9d;
+    border-color: var(--accent-pink);
     background-color: rgba(2, 6, 23, 0.95);
 }
 
@@ -997,9 +1087,9 @@ p{
     margin-top: 25px;
     padding: 14px 30px;
     border-radius: 10px;
-    border: 2px solid #ff6b9d;
-    background-color: #ff6b9d;
-    color: #050816;
+    border: 2px solid var(--accent-pink);
+    background-color: var(--accent-pink);
+    color: var(--ink);
     font-family: "Press Start 2P";
     font-size: 11px;
     cursor: pointer;
@@ -1011,9 +1101,9 @@ p{
 }
 
 .contact-button:hover{
-    background-color: #ff8ab5;
+    background-color: var(--accent-pink-soft);
     transform: translateY(-2px);
-    border-color: #ff8ab5;
+    border-color: var(--accent-pink-soft);
 }
 
 .contact-button:active{
@@ -1036,54 +1126,54 @@ p{
 }
 
 .form-status.success{
-    color: #00ffff;
+    color: var(--accent-cyan);
     background-color: rgba(0, 255, 255, 0.1);
-    border: 2px solid #00ffff;
+    border: 2px solid var(--accent-cyan);
 }
 
 .form-status.error{
-    color: #ff6b9d;
+    color: var(--accent-pink);
     background-color: rgba(255, 107, 157, 0.1);
-    border: 2px solid #ff6b9d;
+    border: 2px solid var(--accent-pink);
 }
 
 .fa-python {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-java {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-js {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-html5 {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-css3-alt {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-react {
-    color: #ff6b9d;
+    color: var(--accent-pink);
     font-size: 80px;
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -1096,7 +1186,7 @@ p{
 .skill-box:hover .fa-css3-alt,
 .skill-box:hover .fa-react{
     transform: scale(1.1);
-    color: #00ffff;
+    color: var(--accent-cyan);
 }
 
 .navbar{
@@ -1144,7 +1234,7 @@ p{
 }
 
 .navbar a{
-    color: #00ffff;
+    color: var(--accent-cyan);
     text-decoration: none;
     padding: 10px 16px;
     display: block;
@@ -1158,14 +1248,14 @@ p{
 }
 
 .navbar a:hover{
-    color: #ff6b9d;
+    color: var(--accent-pink);
     transform: translateY(-1px);
     border-color: rgba(255, 107, 157, 0.4);
     background-color: rgba(255, 107, 157, 0.1);
 }
 
 .navbar a.active{
-    color: #ff6b9d;
+    color: var(--accent-pink);
     background-color: rgba(255, 107, 157, 0.15);
     border-color: rgba(255, 107, 157, 0.5);
 }
@@ -1194,7 +1284,7 @@ p{
     margin: 0 0 8px;
     font-family: "Press Start 2P";
     font-size: 18px;
-    color: #00ffff;
+    color: var(--accent-cyan);
 }
 
 .resume-panel-header p{
@@ -1229,7 +1319,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #00ffff;
+    color: var(--accent-cyan);
     background: rgba(0, 255, 255, 0.1);
     border: 1px solid rgba(0, 255, 255, 0.3);
     font-size: 24px;
@@ -1262,10 +1352,30 @@ p{
     border: 1px solid rgba(255, 107, 157, 0.25);
 }
 
+.skill-group-header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skill-group-icon{
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    color: var(--accent-cyan);
+    font-size: 16px;
+}
+
 .skill-group h4{
-    margin: 0 0 12px;
+    margin: 0;
     font-size: 14px;
-    color: #ff6b9d;
+    color: var(--accent-pink);
     letter-spacing: 0.5px;
 }
 
@@ -1296,7 +1406,7 @@ p{
     border-radius: 999px;
     border: 1px solid rgba(0, 255, 255, 0.5);
     background-color: rgba(0, 255, 255, 0.1);
-    color: #00ffff;
+    color: var(--accent-cyan);
     font-size: 13px;
     text-decoration: none;
     transition: transform 0.2s ease, border-color 0.3s ease, background-color 0.3s ease;
@@ -1306,7 +1416,7 @@ p{
     transform: translateY(-1px);
     border-color: rgba(255, 107, 157, 0.6);
     background-color: rgba(255, 107, 157, 0.15);
-    color: #ff6b9d;
+    color: var(--accent-pink);
 }
 
 .resume-project-carousel{
@@ -1341,7 +1451,7 @@ p{
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: #00ffff;
+    background-color: var(--accent-cyan);
     border: 2px solid rgba(255, 107, 157, 0.6);
     margin-top: 4px;
 }
@@ -1380,4 +1490,92 @@ p{
 
 .timeline-content li{
     margin-bottom: 6px;
+}
+
+.site-footer{
+    background-color: rgba(2, 6, 23, 0.9);
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    padding: 40px 20px 24px;
+    color: var(--text);
+}
+
+.footer-inner{
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.footer-brand h3{
+    margin: 0 0 12px;
+    font-family: "Press Start 2P";
+    font-size: 14px;
+    color: var(--accent-cyan);
+}
+
+.footer-brand p{
+    margin: 0;
+    padding: 0;
+    border: none;
+    max-width: 100%;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.footer-links h4,
+.footer-social h4{
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--accent-pink);
+    letter-spacing: 0.5px;
+}
+
+.footer-links{
+    display: grid;
+    gap: 8px;
+}
+
+.footer-links a{
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover{
+    color: var(--accent-cyan);
+}
+
+.footer-social-links{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.footer-social-links a{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    background-color: rgba(2, 6, 23, 0.6);
+    color: var(--accent-cyan);
+    transition: transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-social-links a:hover{
+    transform: translateY(-2px);
+    color: var(--accent-pink);
+    border-color: rgba(255, 107, 157, 0.6);
+}
+
+.footer-bottom{
+    text-align: center;
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
 }

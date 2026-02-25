@@ -19,6 +19,7 @@ function App() {
       <SectionDivider />
       <Resume />
       <Contact />
+      <Footer />
       <ScrollToTop />
     </div>
   );

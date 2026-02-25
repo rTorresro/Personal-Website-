@@ -18,6 +18,10 @@ function About() {
         <p id="about-paragraph" className="reveal-text">
           {ABOUT_TEXT}
         </p>
+        <div className="portfolio-narrative reveal-text">
+          <h3>Portfolio Narrative</h3>
+          <p>{PORTFOLIO_NARRATIVE}</p>
+        </div>
       </div>
     </section>
   );
