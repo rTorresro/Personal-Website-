@@ -27,13 +27,20 @@ function Projects() {
           </button>
           <div className="project-card reveal-text revealed">
             <div className="project-text">
-              <p className="project-title">{project.title}</p>
-              <p className="project-description">{project.description}</p>
-              <p className="project-link">
-                <a href={project.link} target="_blank" rel="noreferrer">
-                  View on GitHub
-                </a>
+              <p className="project-title">
+                {project.title}
+                {project.status ? ` • ${project.status}` : ""}
               </p>
+              <p className="project-description">{project.description}</p>
+              {project.link ? (
+                <p className="project-link">
+                  <a href={project.link} target="_blank" rel="noreferrer">
+                    View on GitHub
+                  </a>
+                </p>
+              ) : (
+                <p className="project-link">Repo coming soon</p>
+              )}
             </div>
           </div>
           <button

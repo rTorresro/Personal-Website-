@@ -38,11 +38,19 @@ const RESUME_SKILL_HIGHLIGHTS = [
 const SKILL_GROUPS = [
   {
     title: "Languages",
-    items: ["Java", "Python", "C++", "JavaScript", "HTML", "CSS"]
+    items: ["Java", "Python", "C++", "JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
     title: "Frameworks",
-    items: ["React", "Next.js", "FastAPI", "Node.js", "Streamlit"]
+    items: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "FastAPI",
+      "Flask",
+      "Spring Boot",
+      "Streamlit"
+    ]
   },
   {
     title: "Databases",
@@ -50,7 +58,20 @@ const SKILL_GROUPS = [
   },
   {
     title: "Tools",
-    items: ["Git"]
+    items: [
+      "Git",
+      "GitHub",
+      "Firebase",
+      "Vite",
+      "Tailwind CSS",
+      "Leaflet",
+      "scikit-learn",
+      "Pandas",
+      "NumPy",
+      "JUnit",
+      "Linux",
+      "Maven"
+    ]
   }
 ];
 
@@ -90,22 +111,23 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
-    title: "ProjectPilot",
+    title: "Queued",
     description:
-      "An AI-powered chatbot that generates personalized project ideas for your resume. Built with Python, Streamlit, and OpenAI GPT, it suggests projects based on your skills, experience level, and interests.",
-    link: "https://github.com/rTorresro/Project-Pilot"
+      "A personalized watchlist platform that organizes movies and shows with smart filters and viewing analytics. Built with a Node/Express backend and a React + TypeScript UI.",
+    link: "https://github.com/rTorresro/Queued",
+    status: "WIP"
   },
   {
-    title: "Statmind",
+    title: "RunIt Pittsburgh",
     description:
-      "A basketball analytics project that explores NBA data, trends, and storytelling through real-world datasets and insights.",
-    link: "https://github.com/rTorresro/Statmind"
+      "A real-time basketball court finder that helps players discover games, check in, and organize pickup runs. Built with React, Vite, Firebase, Leaflet, and Tailwind CSS.",
+    link: "https://github.com/rTorresro/RunIt-Pittsburgh-"
   },
   {
-    title: "Spotify Analyzer",
+    title: "Pulseboard",
     description:
-      "A Python app that analyzes your Spotify playlists to uncover tempo patterns, energy-valence relationships, top artists, and mood classification using data visualizations.",
-    link: "https://github.com/rTorresro/Spotify-Analyzer"
+      "A task analytics dashboard that turns daily tracking into live metrics and streak insights. Spring Boot, React, TypeScript, and PostgreSQL.",
+    status: "WIP"
   },
   {
     title: "StockSight",
