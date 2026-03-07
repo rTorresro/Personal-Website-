@@ -620,6 +620,12 @@ h1{
     position: relative;
 }
 
+.hero-3d{
+    width: min(420px, 85vw);
+    height: 260px;
+    margin: 0 auto 30px;
+}
+
 h1:hover{
     animation: glitch 0.3s infinite;
 }

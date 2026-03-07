@@ -2,6 +2,7 @@ function Home() {
   return (
     <section id="home">
       <h1>Roger Torres • Full-Stack Developer</h1>
+      <HeroOrb />
       <div className="resume-button-container">
         <a href="rogerressumeFIXED10.pdf" download className="resume-button">
           <i className="fas fa-download"></i>
