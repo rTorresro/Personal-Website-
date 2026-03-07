@@ -21,7 +21,7 @@ function HeroModel() {
 
     const initScene = () => {
       const THREE = window.THREE;
-      const GLTFLoader = window.GLTFLoader;
+      const GLTFLoader = window.THREE?.GLTFLoader || window.GLTFLoader;
       if (!THREE || !GLTFLoader) return null;
 
       const scene = new THREE.Scene();
@@ -134,6 +134,7 @@ function HeroModel() {
 
     let cleanup = null;
     let retryId = null;
+    let failTimeout = null;
     const start = () => {
       cleanup = initScene();
       if (!cleanup) {
@@ -141,16 +142,24 @@ function HeroModel() {
       } else if (retryId) {
         window.clearInterval(retryId);
         retryId = null;
+        if (failTimeout) {
+          window.clearTimeout(failTimeout);
+          failTimeout = null;
+        }
       }
     };
 
     start();
     if (!cleanup) {
       retryId = window.setInterval(start, 300);
+      failTimeout = window.setTimeout(() => {
+        status.textContent = "3D loader failed to load. Check console.";
+      }, 6000);
     }
 
     return () => {
       if (retryId) window.clearInterval(retryId);
+      if (failTimeout) window.clearTimeout(failTimeout);
       if (cleanup) cleanup();
     };
   }, []);
