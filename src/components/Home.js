@@ -2,7 +2,7 @@ function Home() {
   return (
     <section id="home">
       <h1 className="hero-title">Roger Torres • Full-Stack Developer</h1>
-      <HeroModel />
+      <SketchfabEmbed />
       <div className="resume-button-container">
         <a href="rogerressumeFIXED10.pdf" download className="resume-button">
           <i className="fas fa-download"></i>
