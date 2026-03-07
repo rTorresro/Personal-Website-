@@ -982,9 +982,6 @@ p{
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 18px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-media{
@@ -1017,15 +1014,6 @@ p{
     color: var(--muted);
     font-size: 14px;
     line-height: 1.7;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.project-text:hover .project-stacks,
-.project-text:hover .project-outcomes{
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .project-outcomes li{
