@@ -637,8 +637,8 @@ h1{
 }
 
 .hero-3d{
-    width: min(420px, 85vw);
-    height: 260px;
+    width: min(520px, 90vw);
+    height: 340px;
     margin: 0 auto 30px;
 }
 
