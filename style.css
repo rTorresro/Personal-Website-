@@ -12,16 +12,32 @@
 }
 
 body{
-    background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
-    background-size: 400% 400%;
+    background: var(--scene-bg, linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3)));
+    background-size: 140% 140%;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     margin: 0px; 
     padding: 40px 20px;
-    animation: gradientShift 10s ease infinite;
+    transition: background 1.2s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text);
+}
+
+body[data-scene="home"]{
+    --scene-bg: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 55%, #060606 100%);
+}
+
+body[data-scene="about"]{
+    --scene-bg: radial-gradient(circle at top, #1b0f12 0%, #0a0a0a 55%, #060606 100%);
+}
+
+body[data-scene="resume"]{
+    --scene-bg: radial-gradient(circle at top, #220c0c 0%, #0b0b0b 55%, #050505 100%);
+}
+
+body[data-scene="contact"]{
+    --scene-bg: radial-gradient(circle at top, #1b0f10 0%, #0a0a0a 55%, #050505 100%);
 }
 
 body.show-cursor-trail{

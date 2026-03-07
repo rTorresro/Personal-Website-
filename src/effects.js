@@ -117,6 +117,7 @@ function setupPortfolioEffects() {
       setupCursorTrail();
       setupParallax();
       setupNavbarActive();
+      setupSceneTransitions();
       setupScrollToTop();
       setupTextReveal();
       setupSectionDividers();
@@ -215,6 +216,30 @@ function setupPortfolioEffects() {
     });
 
     updateParallax();
+  }
+
+  function setupSceneTransitions() {
+    const sections = Array.from(document.querySelectorAll("section"));
+    if (!sections.length) return;
+
+    const updateScene = () => {
+      const targetLine = window.innerHeight * 0.35;
+      let active = sections[0];
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= targetLine && rect.bottom >= targetLine) {
+          active = section;
+        }
+      });
+
+      if (active?.id) {
+        document.body.dataset.scene = active.id;
+      }
+    };
+
+    window.addEventListener("scroll", updateScene);
+    updateScene();
   }
 
   function animateSkillBars() {
