@@ -4,9 +4,21 @@ function HeroModel() {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    if (!window.THREE || !window.THREE.GLTFLoader || !mountRef.current) return;
+    if (!mountRef.current) return;
 
     const container = mountRef.current;
+    container.innerHTML = "";
+
+    const status = document.createElement("div");
+    status.className = "model-status";
+    status.textContent = "Loading 3D model...";
+    container.appendChild(status);
+
+    if (!window.THREE || !window.THREE.GLTFLoader) {
+      status.textContent = "3D loader unavailable.";
+      return;
+    }
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     camera.position.set(0, 0.2, 3);
@@ -31,10 +43,25 @@ function HeroModel() {
     scene.add(rimLight);
 
     let model = null;
+    let fallback = null;
+    const createFallback = () => {
+      if (fallback) return;
+      const geometry = new THREE.TorusKnotGeometry(0.6, 0.18, 120, 16);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xef4444,
+        metalness: 0.35,
+        roughness: 0.35
+      });
+      fallback = new THREE.Mesh(geometry, material);
+      scene.add(fallback);
+      status.textContent = "Using fallback shape (model not loaded).";
+    };
+
     const clock = new THREE.Clock();
     const loader = new THREE.GLTFLoader();
+    const timeoutId = setTimeout(createFallback, 2500);
     loader.load(
-      "the_flash_2023.glb",
+      "./the_flash_2023.glb",
       (gltf) => {
         model = gltf.scene;
         const box = new THREE.Box3().setFromObject(model);
@@ -45,9 +72,18 @@ function HeroModel() {
         const scale = maxDim ? 1.6 / maxDim : 1;
         model.scale.setScalar(scale);
         scene.add(model);
+        if (fallback) {
+          scene.remove(fallback);
+          fallback = null;
+        }
+        status.textContent = "";
+        clearTimeout(timeoutId);
       },
       undefined,
-      () => {}
+      () => {
+        createFallback();
+        clearTimeout(timeoutId);
+      }
     );
 
     const handleResize = () => {
@@ -66,6 +102,9 @@ function HeroModel() {
       if (model) {
         model.rotation.y = elapsed * 0.4;
         model.rotation.x = Math.sin(elapsed * 0.6) * 0.08;
+      } else if (fallback) {
+        fallback.rotation.y = elapsed * 0.6;
+        fallback.rotation.x = elapsed * 0.3;
       }
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
