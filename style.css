@@ -638,8 +638,10 @@ h1{
 
 .hero-3d{
     width: min(520px, 90vw);
-    height: 340px;
+    height: 360px;
     margin: 0 auto 30px;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.08), transparent 70%);
+    border-radius: 20px;
 }
 
 h1:hover{
