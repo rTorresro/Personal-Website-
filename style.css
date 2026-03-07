@@ -636,6 +636,10 @@ h1{
     position: relative;
 }
 
+.hero-title{
+    margin-bottom: 20px;
+}
+
 .hero-3d{
     width: min(520px, 90vw);
     height: 360px;

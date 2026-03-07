@@ -1,7 +1,7 @@
 function Home() {
   return (
     <section id="home">
-      <h1>Roger Torres • Full-Stack Developer</h1>
+      <h1 className="hero-title">Roger Torres • Full-Stack Developer</h1>
       <HeroModel />
       <div className="resume-button-container">
         <a href="rogerressumeFIXED10.pdf" download className="resume-button">
