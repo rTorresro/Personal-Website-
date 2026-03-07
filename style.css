@@ -659,6 +659,7 @@ h1{
     color: rgba(249, 250, 251, 0.65);
     text-align: center;
     pointer-events: none;
+    z-index: 2;
 }
 
 h1:hover{
