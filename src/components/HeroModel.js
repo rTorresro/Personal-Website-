@@ -14,7 +14,7 @@ function HeroModel() {
     status.textContent = "Loading 3D model...";
     container.appendChild(status);
 
-    const loaderCtor = window.THREE?.GLTFLoader || window.GLTFLoader;
+    const loaderCtor = window.GLTFLoader || window.THREE?.GLTFLoader;
     if (!window.THREE || !loaderCtor) {
       status.textContent = "3D loader unavailable.";
       return;
