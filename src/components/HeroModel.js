@@ -14,7 +14,7 @@ function HeroModel() {
     status.textContent = "Loading 3D model...";
     container.appendChild(status);
 
-    if (!window.THREE || !window.THREE.GLTFLoader) {
+    if (!window.THREE || !window.GLTFLoader) {
       status.textContent = "3D loader unavailable.";
       return;
     }
@@ -58,7 +58,7 @@ function HeroModel() {
     };
 
     const clock = new THREE.Clock();
-    const loader = new THREE.GLTFLoader();
+    const loader = new window.GLTFLoader();
     const timeoutId = setTimeout(createFallback, 2500);
     loader.load(
       "./the_flash_2023.glb",
