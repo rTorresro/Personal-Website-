@@ -17,7 +17,12 @@ function HeroModel() {
     let cleanup = null;
     let cancelled = false;
 
-    const init = async () => {
+    const resolveModelUrl = () => {
+      const base = window.location.origin + window.location.pathname.replace(/\/$/, "");
+      return `${base}/the_flash_2023.glb`;
+    };
+
+    const importModules = async () => {
       try {
         const THREE = await import(
           "https://unpkg.com/three@0.158.0/build/three.module.js"
@@ -25,6 +30,21 @@ function HeroModel() {
         const { GLTFLoader } = await import(
           "https://unpkg.com/three@0.158.0/examples/jsm/loaders/GLTFLoader.js"
         );
+        return { THREE, GLTFLoader };
+      } catch (error) {
+        const THREE = await import(
+          "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js"
+        );
+        const { GLTFLoader } = await import(
+          "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/GLTFLoader.js"
+        );
+        return { THREE, GLTFLoader };
+      }
+    };
+
+    const init = async () => {
+      try {
+        const { THREE, GLTFLoader } = await importModules();
         if (cancelled) return;
 
         const scene = new THREE.Scene();
@@ -72,7 +92,7 @@ function HeroModel() {
         const loader = new GLTFLoader();
         const timeoutId = setTimeout(createFallback, 2500);
         loader.load(
-          "./the_flash_2023.glb",
+          resolveModelUrl(),
           (gltf) => {
             model = gltf.scene;
             const box = new THREE.Box3().setFromObject(model);
@@ -91,7 +111,8 @@ function HeroModel() {
             clearTimeout(timeoutId);
           },
           undefined,
-          () => {
+          (error) => {
+            console.error("GLB load error:", error);
             createFallback();
             clearTimeout(timeoutId);
           }
@@ -133,6 +154,7 @@ function HeroModel() {
           }
         };
       } catch (error) {
+        console.error("3D module load error:", error);
         status.textContent = "Unable to load 3D model.";
       }
     };
