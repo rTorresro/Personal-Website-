@@ -1,8 +1,7 @@
 function Home() {
   return (
     <section id="home">
-      <h1>Hello, Welcome to Roger.dev</h1>
-      <img id="image1" src="IMG_8057.jpg" alt="Description" />
+      <h1>Roger Torres • Full-Stack Developer</h1>
       <div className="resume-button-container">
         <a href="rogerressumeFIXED10.pdf" download className="resume-button">
           <i className="fas fa-download"></i>

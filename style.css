@@ -964,6 +964,21 @@ p{
     margin-bottom: 18px;
 }
 
+.project-media{
+    margin: 18px 0 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    background-color: rgba(2, 6, 23, 0.6);
+}
+
+.project-media img{
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
 .project-stack{
     padding: 6px 12px;
     border-radius: 999px;

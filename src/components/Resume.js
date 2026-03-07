@@ -75,6 +75,14 @@ function Resume() {
                     <span className="project-status-badge">{project.status}</span>
                   ) : null}
                 </p>
+                {project.image ? (
+                  <div className="project-media">
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt || `${project.title} preview`}
+                    />
+                  </div>
+                ) : null}
                 <p className="project-description">{project.description}</p>
                 {project.stack?.length ? (
                   <div className="project-stacks">

@@ -123,6 +123,8 @@ const PROJECTS = [
       "A personalized watchlist platform that organizes movies and shows with smart filters and viewing analytics. Built with a Node/Express backend and a React + TypeScript UI.",
     link: "https://github.com/rTorresro/Queued",
     status: "WIP",
+    image: "Screenshot 2026-03-07 at 1.19.00 AM.png",
+    imageAlt: "Queued dashboard preview",
     stack: ["Node.js", "Express", "React", "TypeScript", "TMDB API"],
     outcomes: [
       "Built personalized watchlists with smart filters and preferences.",
@@ -134,6 +136,8 @@ const PROJECTS = [
     description:
       "A real-time basketball court finder that helps players discover games, check in, and organize pickup runs. Built with React, Vite, Firebase, Leaflet, and Tailwind CSS.",
     link: "https://github.com/rTorresro/RunIt-Pittsburgh-",
+    image: "Screenshot 2026-03-07 at 1.24.22 AM.png",
+    imageAlt: "RunIt Pittsburgh map and courts preview",
     stack: ["React", "Vite", "Firebase", "Leaflet", "Tailwind CSS"],
     outcomes: [
       "Mapped courts with live check-ins and game status updates.",
