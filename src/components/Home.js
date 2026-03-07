@@ -8,6 +8,14 @@ function Home() {
           Download Resume
         </a>
       </div>
+      <div className="metrics-strip">
+        {METRICS.map((metric) => (
+          <div className="metric-card" key={metric.label}>
+            <span className="metric-value">{metric.value}</span>
+            <span className="metric-label">{metric.label}</span>
+          </div>
+        ))}
+      </div>
       <div className="social-links">
         <a
           href="https://github.com/rTorresro"

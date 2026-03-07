@@ -706,6 +706,18 @@ h2:hover{
     overflow: hidden;
 }
 
+.resume-button::after{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 120%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
 .resume-button i{
     margin-right: 10px;
 }
@@ -713,6 +725,10 @@ h2:hover{
 .resume-button:hover{
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+
+.resume-button:hover::after{
+    left: 120%;
 }
 
 .resume-button:active{
@@ -895,6 +911,10 @@ p{
     transition: transform 0.2s ease, border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
 
+.project-nav-button:active{
+    transform: translateY(0) scale(0.96);
+}
+
 .project-nav-button:hover{
     transform: translateY(-2px);
     border-color: var(--accent-pink);
@@ -962,6 +982,9 @@ p{
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 18px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-media{
@@ -994,6 +1017,15 @@ p{
     color: var(--muted);
     font-size: 14px;
     line-height: 1.7;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-text:hover .project-stacks,
+.project-text:hover .project-outcomes{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-outcomes li{
@@ -1015,6 +1047,31 @@ p{
     font-weight: bold; 
     font-size: 14px;
     transition: color 0.3s ease;
+}
+
+.project-link a:hover{
+    text-decoration: underline;
+}
+
+.project-link-button{
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link-button::after{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 120%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.project-link-button:hover::after{
+    left: 120%;
 }
 
 .project-link a:hover{
@@ -1113,6 +1170,51 @@ p{
     margin-left: auto;
     margin-right: auto;
     width: 200px;
+}
+
+.contact-button:hover{
+    transform: translateY(-2px);
+}
+
+.contact-button:active{
+    transform: translateY(0) scale(0.98);
+}
+
+.metrics-strip{
+    max-width: 760px;
+    margin: 30px auto 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.metric-card{
+    background-color: rgba(2, 6, 23, 0.75);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(255, 107, 157, 0.4);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.metric-value{
+    display: block;
+    font-family: "Press Start 2P";
+    font-size: 16px;
+    color: var(--accent-cyan);
+    margin-bottom: 6px;
+}
+
+.metric-label{
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
 }
 
 .contact-button:hover{

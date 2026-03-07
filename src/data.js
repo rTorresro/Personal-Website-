@@ -15,6 +15,12 @@ const TERMINAL_LINES = [
   "Starting Roger.dev..."
 ];
 
+const METRICS = [
+  { label: "Projects", value: "7" },
+  { label: "Core Stacks", value: "3" },
+  { label: "Years Building", value: "2+" }
+];
+
 const NAME_LETTERS = Array.from("Roger Torres");
 
 const ABOUT_TEXT =
