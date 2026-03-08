@@ -21,6 +21,7 @@ function App() {
       <CodeSnippets />
       <TerminalHero />
       <Navbar />
+      <SidePanel onNavigate={handleNavigate} />
       <Home />
       <SectionDivider />
       <About />

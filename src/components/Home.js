@@ -66,7 +66,7 @@ function Home() {
           <i className="fas fa-envelope"></i>
         </a>
       </div>
-      <TerminalCTA onNavigate={handleNavigate} />
+      <TerminalCTA onNavigate={handleNavigate} className="terminal-cta-inline" />
     </section>
   );
 }

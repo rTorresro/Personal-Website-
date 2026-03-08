@@ -1,6 +1,6 @@
 const { useMemo, useState } = React;
 
-function TerminalCTA({ onNavigate }) {
+function TerminalCTA({ onNavigate, className = "" }) {
   const [lines, setLines] = useState([
     "Welcome to the fsociety terminal. Type 'help' to begin."
   ]);
@@ -77,7 +77,10 @@ function TerminalCTA({ onNavigate }) {
   };
 
   return (
-    <div className="terminal-cta" aria-label="Interactive terminal">
+    <div
+      className={`terminal-cta ${className}`.trim()}
+      aria-label="Interactive terminal"
+    >
       <div className="terminal-cta-header">
         <span className="terminal-cta-dot red"></span>
         <span className="terminal-cta-dot yellow"></span>
