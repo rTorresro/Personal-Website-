@@ -1,10 +1,18 @@
 const { useMemo, useState } = React;
 
-function TerminalCTA() {
+function TerminalCTA({ onNavigate }) {
   const [lines, setLines] = useState([
     "Welcome to the fsociety terminal. Type 'help' to begin."
   ]);
   const [input, setInput] = useState("");
+
+  const navCommands = {
+    home: "home",
+    aboutme: "about",
+    resume: "resume",
+    projects: "projects",
+    contact: "contact"
+  };
 
   const commands = useMemo(
     () => ({
@@ -15,6 +23,10 @@ function TerminalCTA() {
         "- ls projects",
         "- cat about.txt",
         "- contact",
+        "- aboutme",
+        "- resume",
+        "- projects",
+        "- home",
         "- clear"
       ],
       whoami: ["roger@fsociety: Full-stack developer + CS student."],
@@ -43,6 +55,15 @@ function TerminalCTA() {
 
     if (command === "clear") {
       setLines([]);
+      setInput("");
+      return;
+    }
+
+    if (navCommands[command]) {
+      appendLines([`Navigating to ${navCommands[command]}...`]);
+      if (onNavigate) {
+        onNavigate(navCommands[command]);
+      }
       setInput("");
       return;
     }
