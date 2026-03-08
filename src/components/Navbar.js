@@ -3,19 +3,19 @@ function Navbar() {
     <nav className="navbar">
       <ul>
         <li>
-          <a href="#home">Home</a>
+          <a href="#home">~/home</a>
         </li>
         <li>
-          <a href="#about">About Me</a>
+          <a href="#about">~/about</a>
         </li>
         <li>
-          <a href="#resume">Resume</a>
+          <a href="#resume">~/resume</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          <a href="#projects">~/projects</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact">~/contact</a>
         </li>
         <li>
           <button

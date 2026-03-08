@@ -172,6 +172,7 @@ function setupPortfolioEffects() {
       setupAnimatedName();
       setupCodeEditorBackground();
       setupSectionRouting();
+      setupSignalLost();
       document.body.classList.add("show-cursor-trail");
     }, 4000);
   }
@@ -455,6 +456,28 @@ function setupPortfolioEffects() {
 
     window.addEventListener("scroll", checkAnimatedName);
     checkAnimatedName();
+  }
+
+  function setupSignalLost() {
+    const overlay = document.createElement("div");
+    overlay.className = "signal-lost-overlay";
+    overlay.innerHTML = '<span class="signal-lost-text">SIGNAL LOST</span>';
+    document.body.appendChild(overlay);
+
+    const trigger = () => {
+      overlay.classList.add("active");
+      setTimeout(() => overlay.classList.remove("active"), 350);
+    };
+
+    const schedule = () => {
+      const delay = 45000 + Math.random() * 30000;
+      setTimeout(() => {
+        trigger();
+        schedule();
+      }, delay);
+    };
+
+    schedule();
   }
 
   function setupCodeEditorBackground() {
