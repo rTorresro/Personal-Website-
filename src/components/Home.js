@@ -1,4 +1,12 @@
 function Home() {
+  const handleNavigate = (sectionId) => {
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+    window.location.hash = sectionId;
+  };
+
   return (
     <section id="home">
       <h1 className="hero-title" data-text="Roger Torres • Full-Stack Developer">
@@ -54,6 +62,7 @@ function Home() {
           <i className="fas fa-envelope"></i>
         </a>
       </div>
+      <TerminalCTA onNavigate={handleNavigate} />
     </section>
   );
 }

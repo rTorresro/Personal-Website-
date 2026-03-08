@@ -21,7 +21,6 @@ function App() {
       <CodeSnippets />
       <TerminalHero />
       <Navbar />
-      <TerminalCTA onNavigate={handleNavigate} />
       <Home />
       <SectionDivider />
       <About />

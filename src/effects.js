@@ -124,6 +124,7 @@ function setupPortfolioEffects() {
       setupHeroGlitch();
       setupAnimatedName();
       setupCodeEditorBackground();
+      setupTerminalDock();
       document.body.classList.add("show-cursor-trail");
     }, 4000);
   }
@@ -239,6 +240,20 @@ function setupPortfolioEffects() {
     };
 
     schedule();
+  }
+
+  function setupTerminalDock() {
+    const homeSection = document.getElementById("home");
+    if (!homeSection) return;
+
+    const updateDock = () => {
+      const rect = homeSection.getBoundingClientRect();
+      const shouldDock = rect.bottom < window.innerHeight * 0.25;
+      document.body.classList.toggle("terminal-docked", shouldDock);
+    };
+
+    window.addEventListener("scroll", updateDock);
+    updateDock();
   }
 
   function setupSceneTransitions() {
