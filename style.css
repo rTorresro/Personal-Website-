@@ -6,18 +6,18 @@
     --ink: #060606;
     --font-body: "Share Tech Mono", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     --font-heading: "Cinzel", "Times New Roman", serif;
-    --accent-cyan: #7cff6b;
-    --accent-pink: #2be4a2;
-    --accent-pink-soft: #b6ffb0;
-    --accent-rgb: 124, 255, 107;
-    --accent-deep-rgb: 35, 120, 78;
-    --text: #e6f5ea;
-    --muted: rgba(230, 245, 234, 0.7);
-    --scene-home: radial-gradient(circle at top, #112017 0%, #070a08 55%, #050505 100%);
-    --scene-about: radial-gradient(circle at top, #0f1f19 0%, #0a0a0a 55%, #060606 100%);
-    --scene-resume: radial-gradient(circle at top, #101c16 0%, #0b0b0b 55%, #050505 100%);
-    --scene-projects: radial-gradient(circle at top, #0f1c18 0%, #0b0b0b 55%, #050505 100%);
-    --scene-contact: radial-gradient(circle at top, #0f1a18 0%, #0a0a0a 55%, #050505 100%);
+    --accent-cyan: #ff2d2d;
+    --accent-pink: #c1121f;
+    --accent-pink-soft: #ff5a5a;
+    --accent-rgb: 255, 45, 45;
+    --accent-deep-rgb: 193, 18, 31;
+    --text: #f2f2f2;
+    --muted: rgba(242, 242, 242, 0.7);
+    --scene-home: radial-gradient(circle at top, #1a1a1a 0%, #070707 55%, #050505 100%);
+    --scene-about: radial-gradient(circle at top, #1b0f12 0%, #0a0a0a 55%, #060606 100%);
+    --scene-resume: radial-gradient(circle at top, #220c0c 0%, #0b0b0b 55%, #050505 100%);
+    --scene-projects: radial-gradient(circle at top, #200b0f 0%, #0b0b0b 55%, #050505 100%);
+    --scene-contact: radial-gradient(circle at top, #1b0f10 0%, #0a0a0a 55%, #050505 100%);
 }
 
 body{
@@ -61,37 +61,6 @@ body::after{
     z-index: 0;
 }
 
-body[data-theme="fsociety"]::before{
-    background-image: linear-gradient(
-        rgba(124, 255, 107, 0.05) 1px,
-        transparent 1px
-    );
-    opacity: 0.4;
-}
-
-body[data-theme="fsociety"]::after{
-    background-image:
-        radial-gradient(rgba(124, 255, 107, 0.08) 1px, transparent 1px),
-        radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
-    mix-blend-mode: screen;
-    opacity: 0.18;
-}
-
-body[data-theme="eclipse"]::before{
-    background-image: linear-gradient(
-        rgba(227, 201, 168, 0.03) 1px,
-        transparent 1px
-    );
-    opacity: 0.28;
-}
-
-body[data-theme="eclipse"]::after{
-    background-image:
-        radial-gradient(rgba(177, 18, 31, 0.12) 1px, transparent 1px),
-        radial-gradient(circle at 50% 10%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.85) 100%);
-    mix-blend-mode: multiply;
-    opacity: 0.22;
-}
 
 body[data-scene="home"]{
     --scene-bg: var(--scene-home);
@@ -113,20 +82,6 @@ body[data-scene="contact"]{
     --scene-bg: var(--scene-contact);
 }
 
-body[data-theme="eclipse"]{
-    --accent-cyan: #e3c9a8;
-    --accent-pink: #b1121f;
-    --accent-pink-soft: #e45555;
-    --accent-rgb: 177, 18, 31;
-    --accent-deep-rgb: 92, 12, 16;
-    --text: #f4ebdd;
-    --muted: rgba(244, 235, 221, 0.7);
-    --scene-home: radial-gradient(circle at top, #220b0b 0%, #0a0a0a 55%, #050505 100%);
-    --scene-about: radial-gradient(circle at top, #1b0f12 0%, #0a0a0a 55%, #060606 100%);
-    --scene-resume: radial-gradient(circle at top, #240909 0%, #0b0b0b 55%, #050505 100%);
-    --scene-projects: radial-gradient(circle at top, #200b0f 0%, #0b0b0b 55%, #050505 100%);
-    --scene-contact: radial-gradient(circle at top, #1d0d10 0%, #0a0a0a 55%, #050505 100%);
-}
 
 body.show-cursor-trail{
     cursor: none;
