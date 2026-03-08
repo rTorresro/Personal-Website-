@@ -28,13 +28,9 @@ function App() {
       <Navbar />
       <SidePanel onNavigate={handleNavigate} />
       <Home />
-      <SectionDivider />
       <About />
-      <SectionDivider />
       <Resume />
-      <SectionDivider />
       <Projects />
-      <SectionDivider />
       <Contact />
       <Footer />
       <ScrollToTop />

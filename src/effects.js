@@ -310,7 +310,6 @@ function setupPortfolioEffects() {
         if (section.id === id) section.classList.add("show");
       });
       document.body.dataset.activeSection = id;
-      document.body.classList.toggle("terminal-docked", id !== "home");
       navLinks.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       });
