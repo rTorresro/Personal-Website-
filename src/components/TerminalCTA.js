@@ -27,6 +27,9 @@ function TerminalCTA({ onNavigate, className = "" }) {
         "- resume",
         "- projects",
         "- home",
+        "- theme fsociety",
+        "- theme eclipse",
+        "- theme toggle",
         "- clear"
       ],
       whoami: ["roger@fsociety: Full-stack developer + CS student."],
@@ -64,6 +67,44 @@ function TerminalCTA({ onNavigate, className = "" }) {
       if (onNavigate) {
         onNavigate(navCommands[command]);
       }
+      setInput("");
+      return;
+    }
+
+    if (command.startsWith("theme")) {
+      const parts = command.split(" ").filter(Boolean);
+      const requested = parts[1];
+      const currentTheme = document.body.dataset.theme || "fsociety";
+
+      if (!requested) {
+        appendLines([
+          `Current theme: ${currentTheme}`,
+          "Available: fsociety, eclipse",
+          "Use: theme fsociety | theme eclipse | theme toggle"
+        ]);
+        setInput("");
+        return;
+      }
+
+      if (requested === "toggle") {
+        const nextTheme = window.toggleTheme ? window.toggleTheme() : null;
+        const resolvedTheme =
+          nextTheme || (currentTheme === "fsociety" ? "eclipse" : "fsociety");
+        appendLines([`Theme switched to ${resolvedTheme}.`]);
+        setInput("");
+        return;
+      }
+
+      if (["fsociety", "eclipse"].includes(requested)) {
+        if (window.setTheme) {
+          window.setTheme(requested);
+        }
+        appendLines([`Theme set to ${requested}.`]);
+        setInput("");
+        return;
+      }
+
+      appendLines(["Usage: theme fsociety | theme eclipse | theme toggle"]);
       setInput("");
       return;
     }

@@ -6,6 +6,10 @@ function App() {
   }, []);
 
   const handleNavigate = (sectionId) => {
+    if (window.setActiveSection) {
+      window.setActiveSection(sectionId);
+      return;
+    }
     const target = document.getElementById(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
@@ -27,6 +31,9 @@ function App() {
       <About />
       <SectionDivider />
       <Resume />
+      <SectionDivider />
+      <Projects />
+      <SectionDivider />
       <Contact />
       <Footer />
       <ScrollToTop />

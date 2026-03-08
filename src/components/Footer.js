@@ -13,6 +13,7 @@ function Footer() {
           <h4>Quick Links</h4>
           <a href="#about">About</a>
           <a href="#resume">Resume</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="footer-social">

@@ -1,4 +1,51 @@
 function setupPortfolioEffects() {
+  const themes = ["fsociety", "eclipse"];
+
+  function applyTheme(theme, options = {}) {
+    if (!themes.includes(theme)) return;
+    document.body.dataset.theme = theme;
+
+    try {
+      if (options.persist !== false) {
+        localStorage.setItem("theme", theme);
+      }
+    } catch (error) {
+      // Ignore storage errors (private mode, blocked storage, etc.)
+    }
+
+    updateThemeToggles(theme);
+  }
+
+  function updateThemeToggles(theme) {
+    const toggles = document.querySelectorAll("[data-theme-toggle]");
+    toggles.forEach((toggle) => {
+      toggle.textContent = theme === "eclipse" ? "ECLIPSE" : "FSOCIETY";
+      toggle.setAttribute("aria-pressed", theme === "eclipse");
+    });
+  }
+
+  function initializeTheme() {
+    let storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem("theme");
+    } catch (error) {
+      storedTheme = null;
+    }
+
+    const initialTheme = themes.includes(storedTheme) ? storedTheme : "fsociety";
+    applyTheme(initialTheme, { persist: false });
+
+    window.setTheme = (theme) => applyTheme(theme);
+    window.toggleTheme = () => {
+      const currentTheme = document.body.dataset.theme || initialTheme;
+      const nextTheme = currentTheme === "fsociety" ? "eclipse" : "fsociety";
+      applyTheme(nextTheme);
+      return nextTheme;
+    };
+  }
+
+  initializeTheme();
+
   document.body.classList.add("terminal-active");
   const lines = document.querySelectorAll(".terminal-line");
   const typingSpeed = 40;

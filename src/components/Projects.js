@@ -14,7 +14,7 @@ function Projects() {
   const project = PROJECTS[currentProject];
 
   return (
-    <section id="projects">
+    <section id="projects" className="section-page">
       <h2>Projects</h2>
       <div id="projects-container">
         <div className="project-carousel">

@@ -4,22 +4,31 @@
     --bg-3: #141414;
     --panel: rgba(6, 6, 6, 0.95);
     --ink: #060606;
-    --accent-cyan: #ff2d2d;
-    --accent-pink: #c1121f;
-    --accent-pink-soft: #ff5a5a;
-    --text: #f2f2f2;
-    --muted: rgba(242, 242, 242, 0.7);
+    --font-body: "Share Tech Mono", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: "Cinzel", "Times New Roman", serif;
+    --accent-cyan: #7cff6b;
+    --accent-pink: #2be4a2;
+    --accent-pink-soft: #b6ffb0;
+    --accent-rgb: 124, 255, 107;
+    --accent-deep-rgb: 35, 120, 78;
+    --text: #e6f5ea;
+    --muted: rgba(230, 245, 234, 0.7);
+    --scene-home: radial-gradient(circle at top, #112017 0%, #070a08 55%, #050505 100%);
+    --scene-about: radial-gradient(circle at top, #0f1f19 0%, #0a0a0a 55%, #060606 100%);
+    --scene-resume: radial-gradient(circle at top, #101c16 0%, #0b0b0b 55%, #050505 100%);
+    --scene-projects: radial-gradient(circle at top, #0f1c18 0%, #0b0b0b 55%, #050505 100%);
+    --scene-contact: radial-gradient(circle at top, #0f1a18 0%, #0a0a0a 55%, #050505 100%);
 }
 
 body{
-    background: var(--scene-bg, radial-gradient(circle at top, #111111 0%, #070707 55%, #050505 100%));
+    background: var(--scene-bg, var(--scene-home, radial-gradient(circle at top, #111111 0%, #070707 55%, #050505 100%)));
     background-size: 160% 160%;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     margin: 0px; 
     padding: 40px 20px;
     transition: background 1.2s ease;
-    font-family: "Share Tech Mono", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
     color: var(--text);
 }
@@ -52,20 +61,71 @@ body::after{
     z-index: 0;
 }
 
+body[data-theme="fsociety"]::before{
+    background-image: linear-gradient(
+        rgba(124, 255, 107, 0.05) 1px,
+        transparent 1px
+    );
+    opacity: 0.4;
+}
+
+body[data-theme="fsociety"]::after{
+    background-image:
+        radial-gradient(rgba(124, 255, 107, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
+    mix-blend-mode: screen;
+    opacity: 0.18;
+}
+
+body[data-theme="eclipse"]::before{
+    background-image: linear-gradient(
+        rgba(227, 201, 168, 0.03) 1px,
+        transparent 1px
+    );
+    opacity: 0.28;
+}
+
+body[data-theme="eclipse"]::after{
+    background-image:
+        radial-gradient(rgba(177, 18, 31, 0.12) 1px, transparent 1px),
+        radial-gradient(circle at 50% 10%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.85) 100%);
+    mix-blend-mode: multiply;
+    opacity: 0.22;
+}
+
 body[data-scene="home"]{
-    --scene-bg: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 55%, #060606 100%);
+    --scene-bg: var(--scene-home);
 }
 
 body[data-scene="about"]{
-    --scene-bg: radial-gradient(circle at top, #1b0f12 0%, #0a0a0a 55%, #060606 100%);
+    --scene-bg: var(--scene-about);
 }
 
 body[data-scene="resume"]{
-    --scene-bg: radial-gradient(circle at top, #220c0c 0%, #0b0b0b 55%, #050505 100%);
+    --scene-bg: var(--scene-resume);
+}
+
+body[data-scene="projects"]{
+    --scene-bg: var(--scene-projects);
 }
 
 body[data-scene="contact"]{
-    --scene-bg: radial-gradient(circle at top, #1b0f10 0%, #0a0a0a 55%, #050505 100%);
+    --scene-bg: var(--scene-contact);
+}
+
+body[data-theme="eclipse"]{
+    --accent-cyan: #e3c9a8;
+    --accent-pink: #b1121f;
+    --accent-pink-soft: #e45555;
+    --accent-rgb: 177, 18, 31;
+    --accent-deep-rgb: 92, 12, 16;
+    --text: #f4ebdd;
+    --muted: rgba(244, 235, 221, 0.7);
+    --scene-home: radial-gradient(circle at top, #220b0b 0%, #0a0a0a 55%, #050505 100%);
+    --scene-about: radial-gradient(circle at top, #1b0f12 0%, #0a0a0a 55%, #060606 100%);
+    --scene-resume: radial-gradient(circle at top, #240909 0%, #0b0b0b 55%, #050505 100%);
+    --scene-projects: radial-gradient(circle at top, #200b0f 0%, #0b0b0b 55%, #050505 100%);
+    --scene-contact: radial-gradient(circle at top, #1d0d10 0%, #0a0a0a 55%, #050505 100%);
 }
 
 body.show-cursor-trail{
@@ -150,7 +210,7 @@ body.show-cursor-trail{
 
 .code-snippet{
     position: absolute;
-    color: rgba(239, 68, 68, 0.15);
+    color: rgba(var(--accent-rgb), 0.15);
     font-family: monospace;
     font-size: 14px;
     white-space: nowrap;
@@ -214,7 +274,7 @@ body.show-cursor-trail{
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(239, 68, 68, 0.5);
+    background-color: rgba(var(--accent-rgb), 0.5);
     pointer-events: none;
     z-index: 9999;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -341,17 +401,17 @@ section#about{
     width: 90%;
     max-width: 700px;
     background-color: rgba(5, 8, 22, 0.95);
-    border: 2px solid rgba(239, 68, 68, 0.3);
+    border: 2px solid rgba(var(--accent-rgb), 0.3);
     border-radius: 12px;
     overflow: hidden;
     filter: blur(8px);
-    box-shadow: 0 20px 60px rgba(239, 68, 68, 0.2);
+    box-shadow: 0 20px 60px rgba(var(--accent-rgb), 0.2);
 }
 
 .code-editor-header{
     background-color: rgba(20, 20, 30, 0.9);
     padding: 10px 15px;
-    border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
     display: block;
 }
 
@@ -537,10 +597,10 @@ section#about{
 }
 
 .animated-name{
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 48px;
     color: var(--accent-cyan);
-    text-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 40px rgba(239, 68, 68, 0.5);
+    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.8), 0 0 40px rgba(var(--accent-rgb), 0.5);
     letter-spacing: 8px;
     display: inline-block;
 }
@@ -586,7 +646,7 @@ section#about{
     100% {
         opacity: 1;
         transform: translateY(0) rotateX(0deg);
-        text-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 40px rgba(239, 68, 68, 0.5), 0 0 60px rgba(185, 28, 28, 0.3);
+        text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.8), 0 0 40px rgba(var(--accent-rgb), 0.5), 0 0 60px rgba(var(--accent-deep-rgb), 0.3);
     }
 }
 
@@ -606,7 +666,7 @@ html {
     border-radius: 0;
     padding: 40px;
     color: var(--accent-cyan);
-    font-family: monospace;
+    font-family: var(--font-body);
     font-size: 12px;
     z-index: 1000;
 }
@@ -661,13 +721,15 @@ html {
 
 h1{
     color: white;
-    font-family: "Share Tech Mono";
+    font-family: var(--font-heading);
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 40px;
-    text-shadow: 2px 2px 0 #000, 0px 0px 24px rgba(255, 45, 45, 0.35);
-    font-size: 52px;
-    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #000, 0px 0px 24px rgba(var(--accent-rgb), 0.35);
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
     transition: transform 0.2s ease;
     position: relative;
 }
@@ -731,7 +793,7 @@ h1{
     margin: 20px auto 30px;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(239, 68, 68, 0.4);
+    border: 1px solid rgba(var(--accent-rgb), 0.4);
     background-color: rgba(6, 6, 6, 0.9);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
     z-index: 500;
@@ -743,7 +805,7 @@ h1{
     gap: 8px;
     padding: 10px 14px;
     background-color: rgba(12, 12, 12, 0.95);
-    border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
 }
 
 .terminal-cta-dot{
@@ -830,7 +892,7 @@ body.terminal-docked section{
 .side-panel-video{
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(239, 68, 68, 0.35);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
     background-color: rgba(6, 6, 6, 0.9);
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
@@ -871,16 +933,28 @@ h1:hover{
 
 h2{
     color: white;
-    font-family: "Share Tech Mono";
+    font-family: var(--font-heading);
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 20px;
-    text-shadow: 2px 2px 0 #000, 0px 0px 18px rgba(255, 45, 45, 0.3);
-    font-size: 30px;
-    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 0 #000, 0px 0px 18px rgba(var(--accent-rgb), 0.3);
+    font-size: clamp(24px, 3.2vw, 32px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
     transition: transform 0.2s ease;
     position: relative;
     z-index: 10;
+}
+
+h2::after{
+    content: "";
+    display: block;
+    width: min(220px, 60vw);
+    height: 2px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-pink), transparent);
+    opacity: 0.8;
 }
 
 h2:hover{
@@ -969,7 +1043,7 @@ h2:hover{
 
 .resume-button:hover{
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.4);
 }
 
 .resume-button:hover::after{
@@ -1007,7 +1081,7 @@ h2:hover{
 .social-link:hover{
     transform: translateY(-5px) scale(1.1);
     border-color: var(--accent-pink);
-    background-color: rgba(185, 28, 28, 0.2);
+    background-color: rgba(var(--accent-deep-rgb), 0.2);
     color: var(--accent-pink);
 }
 
@@ -1047,7 +1121,7 @@ p{
     padding: 28px 32px;
     border-radius: 16px;
     background-color: rgba(2, 6, 23, 0.78);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
     text-align: left;
     color: var(--text);
 }
@@ -1056,8 +1130,9 @@ p{
     margin: 0 0 12px;
     font-size: 16px;
     color: var(--accent-cyan);
-    font-family: "Press Start 2P";
-    letter-spacing: 0.5px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .portfolio-narrative p{
@@ -1089,7 +1164,7 @@ p{
     border-radius: 18px;
     margin: 0 30px 40px 30px;
     text-align: center;
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     padding: 25px 20px;
     background-color: rgba(5, 8, 22, 0.9);
     color: white;
@@ -1099,7 +1174,7 @@ p{
 .skill-box:hover{
     transform: translateY(-5px);
     border-color: var(--accent-cyan);
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(var(--accent-rgb), 0.1);
 }
 
 .skill-box p{
@@ -1113,13 +1188,13 @@ p{
 .skill-progress{
     width: 90%;
     height: 8px;
-    background-color: rgba(239, 68, 68, 0.2);
+    background-color: rgba(var(--accent-rgb), 0.2);
     border-radius: 10px;
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
 }
 
 .skill-progress-bar{
@@ -1128,7 +1203,7 @@ p{
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
     border-radius: 10px;
     transition: width 1.5s ease-out;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
 }
 
 #projects-container{
@@ -1164,7 +1239,7 @@ p{
     transform: translateY(-2px);
     border-color: var(--accent-pink);
     color: var(--accent-pink);
-    background-color: rgba(185, 28, 28, 0.1);
+    background-color: rgba(var(--accent-deep-rgb), 0.1);
 }
 
 .project-card{
@@ -1190,7 +1265,7 @@ p{
 .project-text:hover{
     transform: translateX(5px);
     border-color: var(--accent-pink-soft);
-    background-color: rgba(185, 28, 28, 0.1);
+    background-color: rgba(var(--accent-deep-rgb), 0.1);
 }
 
 .project-title{
@@ -1198,7 +1273,7 @@ p{
     font-size: 18px;
     font-weight: bold;
     color: var(--accent-cyan);
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     letter-spacing: 1px;
 }
 
@@ -1217,8 +1292,8 @@ p{
     font-size: 10px;
     letter-spacing: 0.5px;
     color: var(--accent-pink);
-    border: 1px solid rgba(185, 28, 28, 0.5);
-    background-color: rgba(185, 28, 28, 0.15);
+    border: 1px solid rgba(var(--accent-deep-rgb), 0.5);
+    background-color: rgba(var(--accent-deep-rgb), 0.15);
     text-transform: uppercase;
 }
 
@@ -1233,7 +1308,7 @@ p{
     margin: 18px 0 20px;
     border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
     background-color: rgba(2, 6, 23, 0.6);
 }
@@ -1247,8 +1322,8 @@ p{
 .project-stack{
     padding: 6px 12px;
     border-radius: 999px;
-    background-color: rgba(239, 68, 68, 0.12);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background-color: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
     color: var(--text);
     font-size: 12px;
 }
@@ -1316,7 +1391,7 @@ p{
     margin-top: 16px;
     text-align: center;
     color: var(--accent-cyan);
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 9px;
 }
 
@@ -1395,7 +1470,7 @@ p{
     border: 2px solid var(--accent-pink);
     background-color: var(--accent-pink);
     color: var(--ink);
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 11px;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
@@ -1423,7 +1498,7 @@ p{
 
 .metric-card{
     background-color: rgba(2, 6, 23, 0.75);
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
     border-radius: 14px;
     padding: 16px;
     text-align: center;
@@ -1432,13 +1507,13 @@ p{
 
 .metric-card:hover{
     transform: translateY(-3px);
-    border-color: rgba(185, 28, 28, 0.4);
+    border-color: rgba(var(--accent-deep-rgb), 0.4);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 .metric-value{
     display: block;
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 16px;
     color: var(--accent-cyan);
     margin-bottom: 6px;
@@ -1477,13 +1552,13 @@ p{
 
 .form-status.success{
     color: var(--accent-cyan);
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(var(--accent-rgb), 0.1);
     border: 2px solid var(--accent-cyan);
 }
 
 .form-status.error{
     color: var(--accent-pink);
-    background-color: rgba(185, 28, 28, 0.1);
+    background-color: rgba(var(--accent-deep-rgb), 0.1);
     border: 2px solid var(--accent-pink);
 }
 
@@ -1541,7 +1616,7 @@ p{
 
 .navbar{
     background-color: rgba(5, 5, 5, 0.9);
-    border: 1px solid rgba(239, 68, 68, 0.35);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
     padding: 12px 0;
     margin: 20px auto 0;
     opacity: 0;
@@ -1613,14 +1688,39 @@ p{
 .navbar a:hover{
     color: var(--accent-pink);
     transform: translateY(-1px);
-    border-color: rgba(185, 28, 28, 0.4);
-    background-color: rgba(185, 28, 28, 0.1);
+    border-color: rgba(var(--accent-deep-rgb), 0.4);
+    background-color: rgba(var(--accent-deep-rgb), 0.1);
 }
 
 .navbar a.active{
     color: var(--accent-pink);
-    background-color: rgba(185, 28, 28, 0.15);
-    border-color: rgba(185, 28, 28, 0.5);
+    background-color: rgba(var(--accent-deep-rgb), 0.15);
+    border-color: rgba(var(--accent-deep-rgb), 0.5);
+}
+
+.theme-toggle{
+    color: var(--accent-cyan);
+    background-color: rgba(5, 8, 22, 0.4);
+    border: 1px solid transparent;
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover{
+    color: var(--accent-pink);
+    transform: translateY(-1px);
+    border-color: rgba(var(--accent-deep-rgb), 0.4);
+    background-color: rgba(var(--accent-deep-rgb), 0.1);
+}
+
+.theme-toggle:active{
+    transform: translateY(0);
 }
 
 #resume{
@@ -1636,16 +1736,29 @@ p{
 
 .resume-panel{
     background-color: rgba(5, 8, 22, 0.9);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
     border-radius: 18px;
     padding: 32px;
     color: white;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-panel::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-pink), transparent);
+    opacity: 0.6;
 }
 
 .resume-panel-header h3{
     margin: 0 0 8px;
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 18px;
     color: var(--accent-cyan);
 }
@@ -1670,7 +1783,7 @@ p{
     text-align: center;
     padding: 20px;
     border-radius: 16px;
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
     background-color: rgba(5, 8, 22, 0.7);
 }
 
@@ -1683,8 +1796,8 @@ p{
     align-items: center;
     justify-content: center;
     color: var(--accent-cyan);
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
     font-size: 24px;
 }
 
@@ -1712,7 +1825,7 @@ p{
     padding: 18px 20px;
     border-radius: 14px;
     background-color: rgba(2, 6, 23, 0.8);
-    border: 1px solid rgba(185, 28, 28, 0.25);
+    border: 1px solid rgba(var(--accent-deep-rgb), 0.25);
 }
 
 .skill-group-header{
@@ -1729,8 +1842,8 @@ p{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    background-color: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
     color: var(--accent-cyan);
     font-size: 16px;
 }
@@ -1739,7 +1852,8 @@ p{
     margin: 0;
     font-size: 14px;
     color: var(--accent-pink);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .skill-chips{
@@ -1751,8 +1865,8 @@ p{
 .skill-chip{
     padding: 6px 12px;
     border-radius: 999px;
-    background-color: rgba(185, 28, 28, 0.12);
-    border: 1px solid rgba(185, 28, 28, 0.35);
+    background-color: rgba(var(--accent-deep-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-deep-rgb), 0.35);
     color: #ffffff;
     font-size: 12px;
 }
@@ -1767,8 +1881,8 @@ p{
     gap: 8px;
     padding: 10px 16px;
     border-radius: 999px;
-    border: 1px solid rgba(239, 68, 68, 0.5);
-    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.5);
+    background-color: rgba(var(--accent-rgb), 0.1);
     color: var(--accent-cyan);
     font-size: 13px;
     text-decoration: none;
@@ -1777,8 +1891,8 @@ p{
 
 .project-link-button:hover{
     transform: translateY(-1px);
-    border-color: rgba(185, 28, 28, 0.6);
-    background-color: rgba(185, 28, 28, 0.15);
+    border-color: rgba(var(--accent-deep-rgb), 0.6);
+    background-color: rgba(var(--accent-deep-rgb), 0.15);
     color: var(--accent-pink);
 }
 
@@ -1800,7 +1914,7 @@ p{
     left: 6px;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, rgba(239, 68, 68, 0.7), rgba(185, 28, 28, 0.3));
+    background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.7), rgba(var(--accent-deep-rgb), 0.3));
 }
 
 .timeline-item{
@@ -1815,7 +1929,7 @@ p{
     height: 14px;
     border-radius: 50%;
     background-color: var(--accent-cyan);
-    border: 2px solid rgba(185, 28, 28, 0.6);
+    border: 2px solid rgba(var(--accent-deep-rgb), 0.6);
     margin-top: 4px;
 }
 
@@ -1857,7 +1971,7 @@ p{
 
 .site-footer{
     background-color: rgba(2, 6, 23, 0.9);
-    border-top: 1px solid rgba(239, 68, 68, 0.2);
+    border-top: 1px solid rgba(var(--accent-rgb), 0.2);
     padding: 40px 20px 24px;
     color: var(--text);
 }
@@ -1873,7 +1987,7 @@ p{
 
 .footer-brand h3{
     margin: 0 0 12px;
-    font-family: "Press Start 2P";
+    font-family: var(--font-heading);
     font-size: 14px;
     color: var(--accent-cyan);
 }
@@ -1892,7 +2006,8 @@ p{
     margin: 0 0 12px;
     font-size: 13px;
     color: var(--accent-pink);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .footer-links{
@@ -1924,7 +2039,7 @@ p{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(239, 68, 68, 0.35);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
     background-color: rgba(2, 6, 23, 0.6);
     color: var(--accent-cyan);
     transition: transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
@@ -1933,7 +2048,7 @@ p{
 .footer-social-links a:hover{
     transform: translateY(-2px);
     color: var(--accent-pink);
-    border-color: rgba(185, 28, 28, 0.6);
+    border-color: rgba(var(--accent-deep-rgb), 0.6);
 }
 
 .footer-bottom{
