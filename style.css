@@ -801,8 +801,8 @@ h1{
 }
 
 body.terminal-docked section{
-    max-width: 780px;
-    padding-right: 400px;
+    max-width: 720px;
+    padding-right: 460px;
 }
 
 @media (max-width: 1100px){
@@ -820,7 +820,7 @@ body.terminal-docked section{
     position: fixed;
     top: 120px;
     right: 24px;
-    width: 380px;
+    width: 440px;
     display: none;
     flex-direction: column;
     gap: 16px;
@@ -837,7 +837,7 @@ body.terminal-docked section{
 
 .side-panel-video video{
     width: 100%;
-    height: 220px;
+    height: 260px;
     object-fit: cover;
     display: block;
 }
@@ -852,7 +852,7 @@ body.terminal-docked .side-panel{
 }
 
 .terminal-cta-docked .terminal-cta-body{
-    max-height: 420px;
+    max-height: 480px;
 }
 
 @media (max-width: 1100px){
