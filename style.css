@@ -34,7 +34,7 @@ body::before{
     );
     background-size: 100% 3px;
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.3;
     z-index: 0;
 }
 
@@ -42,10 +42,12 @@ body::after{
     content: "";
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-    background-size: 3px 3px;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+    background-size: 3px 3px, cover;
     mix-blend-mode: screen;
-    opacity: 0.08;
+    opacity: 0.12;
     pointer-events: none;
     z-index: 0;
 }
@@ -664,6 +666,127 @@ h1{
 
 .hero-title{
     margin-bottom: 20px;
+}
+
+.hero-title::before,
+.hero-title::after{
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero-title::before{
+    color: var(--accent-cyan);
+    transform: translate(-2px, 0);
+}
+
+.hero-title::after{
+    color: var(--accent-pink);
+    transform: translate(2px, 0);
+}
+
+.hero-title.glitch-active::before{
+    opacity: 0.6;
+    animation: glitchShift 0.5s steps(2, end) infinite;
+}
+
+.hero-title.glitch-active::after{
+    opacity: 0.4;
+    animation: glitchShift 0.5s steps(2, end) infinite reverse;
+}
+
+@keyframes glitchShift {
+    0% {
+        clip-path: inset(0 0 70% 0);
+    }
+    25% {
+        clip-path: inset(10% 0 40% 0);
+    }
+    50% {
+        clip-path: inset(40% 0 20% 0);
+    }
+    75% {
+        clip-path: inset(20% 0 50% 0);
+    }
+    100% {
+        clip-path: inset(0 0 70% 0);
+    }
+}
+
+.terminal-cta{
+    max-width: 760px;
+    margin: 30px auto 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    background-color: rgba(6, 6, 6, 0.9);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.terminal-cta-header{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: rgba(12, 12, 12, 0.95);
+    border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.terminal-cta-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.terminal-cta-dot.red{ background-color: #ff5f57; }
+.terminal-cta-dot.yellow{ background-color: #febc2e; }
+.terminal-cta-dot.green{ background-color: #28c840; }
+
+.terminal-cta-title{
+    margin-left: 6px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.terminal-cta-body{
+    padding: 18px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.terminal-cta-line{
+    margin: 0 0 8px;
+    padding: 0;
+    border: none;
+    max-width: 100%;
+}
+
+.terminal-cta-form{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.terminal-cta-prompt{
+    color: var(--accent-cyan);
+    font-size: 13px;
+}
+
+.terminal-cta-input{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: "Share Tech Mono";
+    font-size: 13px;
 }
 
 

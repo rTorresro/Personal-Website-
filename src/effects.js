@@ -121,6 +121,7 @@ function setupPortfolioEffects() {
       setupScrollToTop();
       setupTextReveal();
       setupSectionDividers();
+      setupHeroGlitch();
       setupAnimatedName();
       setupCodeEditorBackground();
       document.body.classList.add("show-cursor-trail");
@@ -216,6 +217,28 @@ function setupPortfolioEffects() {
     });
 
     updateParallax();
+  }
+
+  function setupHeroGlitch() {
+    const title = document.querySelector(".hero-title");
+    if (!title) return;
+
+    const trigger = () => {
+      title.classList.add("glitch-active");
+      setTimeout(() => {
+        title.classList.remove("glitch-active");
+      }, 500);
+    };
+
+    const schedule = () => {
+      const delay = 2200 + Math.random() * 2600;
+      setTimeout(() => {
+        trigger();
+        schedule();
+      }, delay);
+    };
+
+    schedule();
   }
 
   function setupSceneTransitions() {

@@ -1,7 +1,9 @@
 function Home() {
   return (
     <section id="home">
-      <h1 className="hero-title">Roger Torres • Full-Stack Developer</h1>
+      <h1 className="hero-title" data-text="Roger Torres • Full-Stack Developer">
+        Roger Torres • Full-Stack Developer
+      </h1>
       <div className="resume-button-container">
         <a href="rogerressumeFIXED10.pdf" download className="resume-button">
           <i className="fas fa-download"></i>
@@ -16,6 +18,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <TerminalCTA />
       <div className="social-links">
         <a
           href="https://github.com/rTorresro"
