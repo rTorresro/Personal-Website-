@@ -14,7 +14,7 @@ function Resume() {
   const project = PROJECTS[currentProject];
 
   return (
-    <section id="resume">
+    <section id="resume" className="section-page">
       <h2>Resume</h2>
       <div className="resume-wrapper">
         <div className="resume-panel resume-panel-skills">

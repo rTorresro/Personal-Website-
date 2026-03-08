@@ -124,7 +124,7 @@ function setupPortfolioEffects() {
       setupHeroGlitch();
       setupAnimatedName();
       setupCodeEditorBackground();
-      setupTerminalDock();
+      setupSectionRouting();
       document.body.classList.add("show-cursor-trail");
     }, 4000);
   }
@@ -242,18 +242,49 @@ function setupPortfolioEffects() {
     schedule();
   }
 
-  function setupTerminalDock() {
-    const homeSection = document.getElementById("home");
-    if (!homeSection) return;
+  function setupSectionRouting() {
+    const sections = Array.from(document.querySelectorAll("section.section-page"));
+    const navLinks = Array.from(document.querySelectorAll(".navbar a"));
+    if (!sections.length) return;
 
-    const updateDock = () => {
-      const rect = homeSection.getBoundingClientRect();
-      const shouldDock = rect.bottom < window.innerHeight * 0.25;
-      document.body.classList.toggle("terminal-docked", shouldDock);
+    const setActiveSection = (sectionId, options = {}) => {
+      const id = sectionId || "home";
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.id === id);
+        if (section.id === id) {
+          section.classList.add("show");
+        }
+      });
+
+      document.body.dataset.activeSection = id;
+      document.body.classList.toggle("terminal-docked", id !== "home");
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+
+      if (options.updateHash !== false) {
+        window.location.hash = id;
+      }
     };
 
-    window.addEventListener("scroll", updateDock);
-    updateDock();
+    window.setActiveSection = setActiveSection;
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const target = link.getAttribute("href").replace("#", "");
+        setActiveSection(target);
+      });
+    });
+
+    window.addEventListener("hashchange", () => {
+      const target = window.location.hash.replace("#", "") || "home";
+      setActiveSection(target, { updateHash: false });
+    });
+
+    const initial = window.location.hash.replace("#", "") || "home";
+    setActiveSection(initial, { updateHash: false });
   }
 
   function setupSceneTransitions() {
@@ -296,53 +327,7 @@ function setupPortfolioEffects() {
   }
 
   function setupNavbarActive() {
-    const navLinks = document.querySelectorAll(".navbar a");
-    const sections = document.querySelectorAll("section");
-    const navbar = document.querySelector(".navbar");
-    const navbarHeight = navbar ? navbar.offsetHeight : 0;
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-          const targetPosition = targetSection.offsetTop - navbarHeight - 20;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth"
-          });
-        }
-      });
-    });
-
-    function updateActiveNav() {
-      let current = "";
-      const scrollPosition = window.pageYOffset + navbarHeight + 100;
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", updateActiveNav);
-    updateActiveNav();
+    if (window.setActiveSection) return;
   }
 
   function setupScrollToTop() {

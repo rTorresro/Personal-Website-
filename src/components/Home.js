@@ -1,14 +1,18 @@
 function Home() {
   const handleNavigate = (sectionId) => {
-    const target = document.getElementById(sectionId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+    if (window.setActiveSection) {
+      window.setActiveSection(sectionId);
+    } else {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      window.location.hash = sectionId;
     }
-    window.location.hash = sectionId;
   };
 
   return (
-    <section id="home">
+    <section id="home" className="section-page">
       <h1 className="hero-title" data-text="Roger Torres • Full-Stack Developer">
         Roger Torres • Full-Stack Developer
       </h1>

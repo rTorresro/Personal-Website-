@@ -290,6 +290,14 @@ section{
     z-index: 10;
 }
 
+section.section-page{
+    display: none;
+}
+
+section.section-page.active{
+    display: block;
+}
+
 section.show{
     opacity: 1;
     transform: translateY(0);
