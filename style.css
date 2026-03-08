@@ -1,27 +1,53 @@
 :root{
-    --bg-1: #0a0a0a;
-    --bg-2: #111111;
-    --bg-3: #151515;
-    --panel: rgba(10, 10, 10, 0.92);
-    --ink: #0a0a0a;
-    --accent-cyan: #ef4444;
-    --accent-pink: #b91c1c;
-    --accent-pink-soft: #f87171;
-    --text: #f9fafb;
-    --muted: rgba(249, 250, 251, 0.7);
+    --bg-1: #080808;
+    --bg-2: #0d0d0d;
+    --bg-3: #141414;
+    --panel: rgba(6, 6, 6, 0.95);
+    --ink: #060606;
+    --accent-cyan: #ff2d2d;
+    --accent-pink: #c1121f;
+    --accent-pink-soft: #ff5a5a;
+    --text: #f2f2f2;
+    --muted: rgba(242, 242, 242, 0.7);
 }
 
 body{
-    background: var(--scene-bg, linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3)));
-    background-size: 140% 140%;
+    background: var(--scene-bg, radial-gradient(circle at top, #111111 0%, #070707 55%, #050505 100%));
+    background-size: 160% 160%;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     margin: 0px; 
     padding: 40px 20px;
     transition: background 1.2s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Share Tech Mono", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text);
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 100% 3px;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 0;
+}
+
+body::after{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: screen;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
 }
 
 body[data-scene="home"]{
@@ -625,13 +651,13 @@ html {
 
 h1{
     color: white;
-    font-family: "Press Start 2P";
+    font-family: "Share Tech Mono";
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 40px;
-    text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
-    font-size: 56px;
-    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000, 0px 0px 24px rgba(255, 45, 45, 0.35);
+    font-size: 52px;
+    letter-spacing: 1px;
     transition: transform 0.2s ease;
     position: relative;
 }
@@ -647,13 +673,13 @@ h1:hover{
 
 h2{
     color: white;
-    font-family: "Press Start 2P";
+    font-family: "Share Tech Mono";
     text-align: center; 
     margin-bottom: 80px;
     margin-top: 20px;
-    text-shadow: 4px 4px 8px black, 0px 0px 20px var(--accent-cyan);
-    font-size: 36px;
-    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #000, 0px 0px 18px rgba(255, 45, 45, 0.3);
+    font-size: 30px;
+    letter-spacing: 0.5px;
     transition: transform 0.2s ease;
     position: relative;
     z-index: 10;
@@ -718,7 +744,7 @@ h2:hover{
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
     color: var(--ink);
     text-decoration: none;
-    font-family: "Press Start 2P";
+    font-family: "Share Tech Mono";
     font-size: 11px;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -950,7 +976,7 @@ p{
 
 .project-text{
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Share Tech Mono";
     background-color: rgba(5, 8, 22, 0.9);
     border-left: 5px solid var(--accent-pink);
     border-right: 5px solid var(--accent-pink);
@@ -1109,7 +1135,7 @@ p{
     border-right: 5px solid var(--accent-cyan);
     border-radius: 15px;
     padding: 40px 35px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Share Tech Mono";
     color: white;
 }
 
@@ -1316,7 +1342,7 @@ p{
 }
 
 .navbar{
-    background-color: rgba(5, 8, 22, 0.85);
+    background-color: rgba(5, 5, 5, 0.9);
     border: 1px solid rgba(239, 68, 68, 0.35);
     padding: 12px 0;
     margin: 20px auto 0;
@@ -1330,7 +1356,7 @@ p{
     max-width: 980px;
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
 }
 
 .navbar.show ~ section{
@@ -1364,13 +1390,26 @@ p{
     text-decoration: none;
     padding: 10px 16px;
     display: block;
-    font-family: "Press Start 2P";
+    font-family: "Share Tech Mono";
     font-size: 9px;
     transition: color 0.3s ease, transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
     border-radius: 999px;
     position: relative;
     border: 1px solid transparent;
     background-color: rgba(5, 8, 22, 0.4);
+}
+
+.navbar a::after{
+    content: "_";
+    opacity: 0;
+    margin-left: 4px;
+    color: var(--accent-cyan);
+    transition: opacity 0.2s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after{
+    opacity: 1;
 }
 
 .navbar a:hover{
