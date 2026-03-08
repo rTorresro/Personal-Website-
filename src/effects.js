@@ -295,25 +295,55 @@ function setupPortfolioEffects() {
     const navLinks = Array.from(document.querySelectorAll(".navbar a"));
     if (!sections.length) return;
 
-    const setActiveSection = (sectionId, options = {}) => {
-      const id = sectionId || "home";
+    const overlay = document.createElement("div");
+    overlay.className = "section-transition-overlay";
+    const label = document.createElement("div");
+    label.className = "transition-label";
+    overlay.appendChild(label);
+    document.body.appendChild(overlay);
+
+    let isTransitioning = false;
+
+    const applySection = (id, options) => {
       sections.forEach((section) => {
         section.classList.toggle("active", section.id === id);
-        if (section.id === id) {
-          section.classList.add("show");
-        }
+        if (section.id === id) section.classList.add("show");
       });
-
       document.body.dataset.activeSection = id;
       document.body.classList.toggle("terminal-docked", id !== "home");
-
       navLinks.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       });
+      if (options.updateHash !== false) window.location.hash = id;
+    };
 
-      if (options.updateHash !== false) {
-        window.location.hash = id;
+    const setActiveSection = (sectionId, options = {}) => {
+      const id = sectionId || "home";
+      const currentId = document.body.dataset.activeSection;
+      if (currentId === id) return;
+
+      if (isTransitioning || options.instant) {
+        applySection(id, options);
+        return;
       }
+
+      isTransitioning = true;
+      label.textContent = `> cd ~/${id}`;
+
+      overlay.classList.remove("exiting");
+      overlay.classList.add("active");
+
+      setTimeout(() => applySection(id, options), 300);
+
+      setTimeout(() => {
+        overlay.classList.remove("active");
+        overlay.classList.add("exiting");
+      }, 350);
+
+      setTimeout(() => {
+        overlay.classList.remove("exiting");
+        isTransitioning = false;
+      }, 640);
     };
 
     window.setActiveSection = setActiveSection;
@@ -332,7 +362,7 @@ function setupPortfolioEffects() {
     });
 
     const initial = window.location.hash.replace("#", "") || "home";
-    setActiveSection(initial, { updateHash: false });
+    setActiveSection(initial, { instant: true, updateHash: false });
   }
 
   function setupSceneTransitions() {
