@@ -8,6 +8,7 @@ function SidePanel({ onNavigate }) {
           loop
           muted
           playsInline
+          preload="auto"
         />
       </div>
       <TerminalCTA onNavigate={onNavigate} className="terminal-cta-docked" />
