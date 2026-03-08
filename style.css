@@ -1048,7 +1048,7 @@ p{
     border-radius: 12px; 
     padding: 25px 30px; 
     margin: 25px auto;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 #about-paragraph{
@@ -1067,11 +1067,11 @@ p{
     margin-bottom: 60px;
     position: relative;
     z-index: 10;
-    max-width: 760px;
+    max-width: 980px;
 }
 
 .portfolio-narrative{
-    max-width: 760px;
+    max-width: 980px;
     margin: 0 auto 60px;
     padding: 28px 32px;
     border-radius: 16px;
@@ -1199,7 +1199,7 @@ p{
 
 .project-card{
     flex: 1;
-    max-width: 760px;
+    max-width: 980px;
 }
 
 .project-text{
@@ -1683,7 +1683,7 @@ p{
 }
 
 .resume-wrapper{
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
     gap: 32px;
