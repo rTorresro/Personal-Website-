@@ -23,6 +23,7 @@ function App() {
       <BackgroundCodeEditor />
       <Particles />
       <CodeSnippets />
+      <Surveillance />
       <TerminalHero />
       <Navbar />
       <SidePanel onNavigate={handleNavigate} />

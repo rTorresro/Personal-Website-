@@ -27,8 +27,12 @@ function Projects() {
           </button>
           <div className="project-card reveal-text revealed">
             <div className="project-text">
+              <div className="project-file-header">
+                <span className="project-file-number">CASE FILE #{String(currentProject + 1).padStart(3, "0")}</span>
+                <span className="project-clearance">TOP SECRET</span>
+              </div>
               <p className="project-title">
-                {project.title}
+                <span className="project-operation">OPERATION: </span>{project.title}
                 {project.status ? (
                   <span className="project-status-badge">{project.status}</span>
                 ) : null}
