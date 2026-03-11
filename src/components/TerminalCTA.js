@@ -30,6 +30,7 @@ function TerminalCTA({ onNavigate, className = "" }) {
         "- theme fsociety",
         "- theme eclipse",
         "- theme toggle",
+        "- palette",
         "- clear"
       ],
       whoami: ["roger@fsociety: Full-stack developer + CS student."],
@@ -55,6 +56,13 @@ function TerminalCTA({ onNavigate, className = "" }) {
     if (!command) return;
 
     appendLines([`roger@fsociety:~$ ${command}`]);
+
+    if (command === "palette") {
+      appendLines(["Opening command palette..."]);
+      setInput("");
+      setTimeout(() => window.openCommandPalette?.(), 300);
+      return;
+    }
 
     if (command === "clear") {
       setLines([]);

@@ -1,8 +1,8 @@
 function About() {
   return (
     <section id="about" className="section-page">
+      <h2>About Me</h2>
       <div className="about-content-wrapper">
-        <h2>About Me</h2>
         <div className="animated-name-container">
           <div className="animated-name" data-name="Roger Torres">
             {NAME_LETTERS.map((letter, index) => (
@@ -15,11 +15,29 @@ function About() {
             ))}
           </div>
         </div>
-        <p id="about-paragraph" className="reveal-text">
-          {ABOUT_TEXT}
-        </p>
+
+        <div className="about-grid">
+          <div className="about-bio">
+            <p id="about-paragraph" className="reveal-text">
+              {ABOUT_TEXT}
+            </p>
+          </div>
+          <div className="about-stats">
+            {ABOUT_STATS.map((stat) => (
+              <div className="about-stat-card" key={stat.label}>
+                <span className="about-stat-icon">
+                  <i className={stat.icon}></i>
+                </span>
+                <div className="about-stat-text">
+                  <span className="about-stat-value">{stat.value}</span>
+                  <span className="about-stat-label">{stat.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="portfolio-narrative reveal-text">
-          <h3>Portfolio Narrative</h3>
           <p>{PORTFOLIO_NARRATIVE}</p>
         </div>
       </div>

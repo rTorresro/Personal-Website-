@@ -173,8 +173,113 @@ function setupPortfolioEffects() {
       setupCodeEditorBackground();
       setupSectionRouting();
       setupSignalLost();
+      setupCardTilt();
+      setupMagneticElements();
+      setupCursorSpotlight();
       document.body.classList.add("show-cursor-trail");
     }, 4000);
+  }
+
+  function scrambleHeading(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const heading = section.querySelector("h2");
+    if (!heading) return;
+
+    const originalText = heading.textContent;
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&<>/\\|";
+    const duration = 650;
+    const frameRate = 38;
+    const totalFrames = Math.ceil(duration / frameRate);
+    let frame = 0;
+
+    const interval = setInterval(function () {
+      frame++;
+      const revealedChars = Math.floor((frame / totalFrames) * originalText.length);
+      let display = "";
+
+      for (let i = 0; i < originalText.length; i++) {
+        if (originalText[i] === " ") {
+          display += " ";
+        } else if (i < revealedChars) {
+          display += originalText[i];
+        } else {
+          display += chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+
+      heading.textContent = display;
+
+      if (frame >= totalFrames) {
+        clearInterval(interval);
+        heading.textContent = originalText;
+      }
+    }, frameRate);
+  }
+
+  function setupCardTilt() {
+    let currentCard = null;
+
+    document.addEventListener("mousemove", function (e) {
+      const card = e.target.closest(".project-card");
+
+      if (card !== currentCard) {
+        if (currentCard) {
+          currentCard.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+          currentCard.style.transition = "transform 0.55s ease-out";
+        }
+        currentCard = card;
+      }
+
+      if (!card) return;
+
+      const rect = card.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const rotateX = ((e.clientY - centerY) / (rect.height / 2)) * -7;
+      const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * 7;
+
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.transition = "transform 0.1s ease-out";
+    });
+  }
+
+  function setupMagneticElements() {
+    const RADIUS = 75;
+    const STRENGTH = 0.38;
+
+    document.addEventListener("mousemove", function (e) {
+      document.querySelectorAll(".social-link, .resume-button").forEach(function (el) {
+        const rect = el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < RADIUS) {
+          const pull = (RADIUS - distance) / RADIUS;
+          const moveX = dx * pull * STRENGTH;
+          const moveY = dy * pull * STRENGTH;
+          el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+          el.style.transition = "transform 0.1s ease-out";
+        } else {
+          el.style.transform = "translate(0, 0)";
+          el.style.transition = "transform 0.35s ease-out";
+        }
+      });
+    });
+  }
+
+  function setupCursorSpotlight() {
+    const spotlight = document.createElement("div");
+    spotlight.className = "cursor-spotlight";
+    document.body.appendChild(spotlight);
+
+    document.addEventListener("mousemove", function (e) {
+      spotlight.style.left = e.clientX + "px";
+      spotlight.style.top = e.clientY + "px";
+    });
   }
 
   function setupScrollProgress() {
@@ -198,36 +303,9 @@ function setupPortfolioEffects() {
     cursorDot.className = "cursor-dot";
     document.body.appendChild(cursorDot);
 
-    const trails = [];
-    let trailIndex = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    for (let i = 0; i < 8; i++) {
-      const trail = document.createElement("div");
-      trail.className = "cursor-trail";
-      trail.style.opacity = "0";
-      document.body.appendChild(trail);
-      trails.push(trail);
-    }
-
     document.addEventListener("mousemove", function (e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      cursorDot.style.left = mouseX - 3 + "px";
-      cursorDot.style.top = mouseY - 3 + "px";
-
-      const trail = trails[trailIndex];
-      trail.style.left = mouseX - 5 + "px";
-      trail.style.top = mouseY - 5 + "px";
-      trail.style.opacity = "0.5";
-
-      setTimeout(() => {
-        trail.style.opacity = "0";
-      }, 300);
-
-      trailIndex = (trailIndex + 1) % trails.length;
+      cursorDot.style.left = e.clientX - 3 + "px";
+      cursorDot.style.top = e.clientY - 3 + "px";
     });
   }
 
@@ -314,6 +392,7 @@ function setupPortfolioEffects() {
         link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       });
       if (options.updateHash !== false) window.location.hash = id;
+      if (!options.instant) scrambleHeading(id);
     };
 
     const setActiveSection = (sectionId, options = {}) => {

@@ -23,6 +23,15 @@ const METRICS = [
 
 const NAME_LETTERS = Array.from("Roger Torres");
 
+const ABOUT_STATS = [
+  { icon: "fas fa-map-marker-alt", value: "Pittsburgh, PA",            label: "Location"    },
+  { icon: "fas fa-graduation-cap", value: "Univ. of Pittsburgh",       label: "University"  },
+  { icon: "fas fa-laptop-code",    value: "CS Freshman",               label: "Major & Year"},
+  { icon: "fas fa-folder-open",    value: "7 Projects",                label: "Built"       },
+  { icon: "fas fa-code",           value: "2+ Years",                  label: "Coding"      },
+  { icon: "fas fa-user",           value: "18",                        label: "Age"         }
+];
+
 const ABOUT_TEXT =
   "I'm Roger Torres, an 18-year-old Computer Science freshman at the University of Pittsburgh. I built this site to grow as a developer, with a focus on full-stack work that blends logic, design, and products that solve real problems. Outside of coding, I like films/TV (Mr. Robot, The Wire, The Sopranos), anime and manga (Berserk, Vinland Saga, Dragon Ball Z), gaming, lifting, and the occasional dive into philosophy. I'm excited to keep building new projects, learning more software engineering, and moving toward independence.";
 
@@ -120,6 +129,20 @@ const EDUCATION = [
     detail: "GPA: 4.0",
     bullets: []
   }
+];
+
+const CURRENTLY_BUILDING = {
+  name: "Queued",
+  detail: "Personalized watchlist platform"
+};
+
+const RADAR_SKILLS = [
+  { label: "Frontend", value: 88 },
+  { label: "Backend", value: 78 },
+  { label: "Data / ML", value: 68 },
+  { label: "CS Core", value: 84 },
+  { label: "DevTools", value: 74 },
+  { label: "Databases", value: 64 }
 ];
 
 const PROJECTS = [

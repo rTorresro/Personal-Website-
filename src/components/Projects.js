@@ -27,16 +27,13 @@ function Projects() {
           </button>
           <div className="project-card reveal-text revealed">
             <div className="project-text">
-              <div className="project-file-header">
-                <span className="project-file-number">CASE FILE #{String(currentProject + 1).padStart(3, "0")}</span>
-                <span className="project-clearance">TOP SECRET</span>
-              </div>
-              <p className="project-title">
-                <span className="project-operation">OPERATION: </span>{project.title}
+              <div className="project-header">
+                <span className="project-index">{String(currentProject + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}</span>
                 {project.status ? (
                   <span className="project-status-badge">{project.status}</span>
                 ) : null}
-              </p>
+              </div>
+              <p className="project-title">{project.title}</p>
               {project.image ? (
                 <div className="project-media">
                   <img

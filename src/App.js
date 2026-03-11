@@ -34,6 +34,8 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
+      <SideNavDots />
+      <CommandPalette />
     </div>
   );
 }
