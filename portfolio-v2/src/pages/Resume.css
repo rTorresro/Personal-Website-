@@ -1,0 +1,173 @@
+.page-resume {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 3rem 3rem;
+  gap: 2.5rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.resume-heading {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 48px);
+  color: var(--text);
+  padding-top: 2rem;
+}
+
+.resume-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.resume-section-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text);
+}
+
+/* ---- Skills ---- */
+
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skill-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.skill-group-title i {
+  color: var(--accent);
+  font-size: 12px;
+  width: 14px;
+  text-align: center;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.skill-chip i {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---- Timeline ---- */
+
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.timeline-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+.timeline-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.timeline-bullets li::before {
+  content: "–";
+  margin-right: 8px;
+  color: var(--text-subtle);
+}
+
+@media (max-width: 768px) {
+  .page-resume {
+    padding: 48px 1.5rem 2rem;
+  }
+
+  .skill-chip {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .timeline-bullets {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-resume {
+    padding: 48px 1.25rem 2rem;
+  }
+
+  .resume-section-title {
+    font-size: 16px;
+  }
+}
