@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import GlobeHero from "../components/GlobeHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
-import albumArt from "../assets/hotel-in-minsk.jpg";
+import albumArt from "../assets/hotel-in-minsk.png";
 import "./Home.css";
 
 const SONG = {
