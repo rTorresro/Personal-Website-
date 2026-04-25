@@ -2,7 +2,49 @@ import { useEffect, useState } from "react";
 import GlobeHero from "../components/GlobeHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
+import albumArt from "../assets/hotel-in-minsk.jpg";
 import "./Home.css";
+
+const SONG = {
+  title: "Hotel in Minsk",
+  artist: "jonatan leandoer96",
+  url: "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT"
+};
+
+function FavoriteSong() {
+  const [imgOk, setImgOk] = useState(true);
+
+  return (
+    <a
+      className="song-card"
+      href={SONG.url}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Current favorite: ${SONG.title} by ${SONG.artist}`}
+    >
+      <div className="song-art">
+        {imgOk ? (
+          <img
+            src={albumArt}
+            alt={`${SONG.title} album art`}
+            loading="lazy"
+            onError={() => setImgOk(false)}
+          />
+        ) : (
+          <i className="fas fa-music song-art-fallback" aria-hidden="true" />
+        )}
+      </div>
+      <div className="song-meta">
+        <span className="song-label">current favorite</span>
+        <span className="song-title">{SONG.title}</span>
+        <span className="song-artist">{SONG.artist}</span>
+      </div>
+      <div className="song-eq" aria-hidden="true">
+        <span /><span /><span />
+      </div>
+    </a>
+  );
+}
 
 const PHRASES = [
   "full-stack developer",
@@ -92,8 +134,11 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="home-globe">
-          <GlobeHero />
+        <div className="home-right">
+          <div className="home-globe">
+            <GlobeHero />
+          </div>
+          <FavoriteSong />
         </div>
       </div>
       <div className="home-metrics">
