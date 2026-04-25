@@ -1,4 +1,5 @@
 import { SKILL_GROUPS, EXPERIENCE, EDUCATION } from "../data.js";
+import Reveal from "../components/Reveal.jsx";
 import "./Resume.css";
 
 const DEVICONS = {
@@ -30,9 +31,9 @@ const DEVICONS = {
   "scikit-learn": "devicon-scikitlearn-plain",
 };
 
-function TimelineItem({ title, meta, bullets }) {
+function TimelineItem({ title, meta, bullets, delay = 0 }) {
   return (
-    <div className="timeline-item">
+    <Reveal className="timeline-item" delay={delay}>
       <div className="timeline-dot" />
       <div className="timeline-content">
         <h4 className="timeline-title">{title}</h4>
@@ -45,7 +46,7 @@ function TimelineItem({ title, meta, bullets }) {
           </ul>
         )}
       </div>
-    </div>
+    </Reveal>
   );
 }
 
@@ -57,8 +58,8 @@ export default function Resume() {
       <div className="resume-section">
         <h3 className="resume-section-title">Skills</h3>
         <div className="skill-groups">
-          {SKILL_GROUPS.map((g) => (
-            <div key={g.title} className="skill-group">
+          {SKILL_GROUPS.map((g, i) => (
+            <Reveal key={g.title} className="skill-group" delay={i * 100}>
               <h4 className="skill-group-title">
                 <i className={g.icon} aria-hidden="true" />
                 {g.title}
@@ -73,7 +74,7 @@ export default function Resume() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -89,6 +90,7 @@ export default function Resume() {
                 .filter(Boolean)
                 .join(" · ")}
               bullets={exp.bullets}
+              delay={i * 100}
             />
           ))}
         </div>
@@ -105,6 +107,7 @@ export default function Resume() {
                 .filter(Boolean)
                 .join(" · ")}
               bullets={edu.bullets}
+              delay={i * 100}
             />
           ))}
         </div>

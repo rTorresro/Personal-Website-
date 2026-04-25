@@ -1,9 +1,32 @@
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import { PROJECTS } from "../data.js";
 import "./Projects.css";
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, delay = 0 }) {
   const cardRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const onMove = useCallback((e) => {
     const card = cardRef.current;
@@ -23,7 +46,8 @@ function ProjectCard({ project }) {
   return (
     <article
       ref={cardRef}
-      className="project-card"
+      className={`project-card reveal${visible ? " reveal-in" : ""}`}
+      style={{ transitionDelay: `${delay}ms` }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >
@@ -81,8 +105,8 @@ export default function Projects() {
     <section className="page-section page-projects">
       <h2 className="projects-heading">projects</h2>
       <div className="projects-grid">
-        {PROJECTS.map((p) => (
-          <ProjectCard key={p.title} project={p} />
+        {PROJECTS.map((p, i) => (
+          <ProjectCard key={p.title} project={p} delay={i * 100} />
         ))}
       </div>
     </section>

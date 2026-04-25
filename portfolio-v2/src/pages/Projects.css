@@ -36,8 +36,12 @@
   border-radius: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
-  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.15s ease;
-  will-change: transform;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.15s ease,
+    opacity 400ms ease-out;
+  will-change: transform, opacity;
 }
 
 .project-card:hover {

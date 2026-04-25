@@ -32,8 +32,23 @@ export const ABOUT_STATS = [
   { icon: "fas fa-user",           value: "18",                        label: "Age"         }
 ];
 
-export const ABOUT_TEXT =
-  "I'm Roger Torres, an 18-year-old Computer Science freshman at the University of Pittsburgh. I built this site to grow as a developer, with a focus on full-stack work that blends logic, design, and products that solve real problems. Outside of coding, I like films/TV (Mr. Robot, The Wire, The Sopranos), anime and manga (Berserk, Vinland Saga, Dragon Ball Z), gaming, lifting, and the occasional dive into philosophy. I'm excited to keep building new projects, learning more software engineering, and moving toward independence.";
+export const ABOUT_PARTS = [
+  {
+    label: "building",
+    text:
+      "I'm a CS student at Pitt (December 2028). I build full-stack software focused on clean UI and real-world utility. I was selected as an incoming TA for sophomore year, freelanced for a local business building their web presence, and competed in and won a university coding competition."
+  },
+  {
+    label: "outside of code",
+    text:
+      "I'm into films and TV (Mr. Robot, The Wire, The Sopranos), anime and manga (Berserk, Vinland Saga, Dragon Ball Z), gaming, basketball, lifting, learning piano, cycling around Pittsburgh, music (Frank Ocean, Elliott Smith, Yung Lean), and philosophy. I'm also fluent in Spanish."
+  },
+  {
+    label: "goal",
+    text:
+      "I want to build software that solves real problems for real people, and I'm looking for opportunities to do that professionally."
+  }
+];
 
 export const PORTFOLIO_NARRATIVE =
   "I design products that feel calm, intentional, and useful. My work blends clean UI with dependable backends, and I care most about clarity, performance, and solving real problems for real people.";
@@ -99,14 +114,22 @@ export const SKILL_GROUPS = [
 
 export const EXPERIENCE = [
   {
-    title: "Tutor — Math, Coding, and Spanish",
-    org: "Self-Employed",
-    location: "Allentown, PA",
-    dates: "2023 – 2025",
+    title: "Undergraduate Teaching Assistant",
+    org: "University of Pittsburgh",
+    location: "Pittsburgh, PA",
+    dates: "August 2026 – Present",
     bullets: [
-      "Tutored students in Java and Python fundamentals including OOP, data structures, algorithms, and debugging.",
-      "Designed custom coding exercises and mini-projects to reinforce computational thinking and programming logic.",
-      "Provided instruction in algebra, calculus, and problem-solving strategies."
+      "Selected as an incoming TA for undergraduate CS instruction as a sophomore, supporting students through office hours, grading, and course material."
+    ]
+  },
+  {
+    title: "Freelance Web Developer",
+    org: "Morning Day Care",
+    location: "Allentown, PA",
+    dates: "April 2026 – June 2026",
+    bullets: [
+      "Digitized enrollment for a local daycare by building a React + Tailwind CSS site with an online registration system, replacing a paper sign-up process.",
+      "Gathered requirements directly from the business owner and iterated on design, delivering a responsive, mobile-friendly site on a 3-week timeline."
     ]
   }
 ];
@@ -115,10 +138,10 @@ export const EDUCATION = [
   {
     school: "University of Pittsburgh",
     location: "Pittsburgh, PA",
-    dates: "Expected May 2029",
+    dates: "Expected December 2028",
     detail: "Bachelor of Science in Computer Science",
     bullets: [
-      "Focus on software development, data structures, discrete mathematics, and applied problem solving.",
+      "Relevant coursework: Data Structures & Algorithms, Computer Organization & Assembly Language, Mathematical Foundations of Machine Learning, Discrete Mathematics, Linear Algebra.",
       "Active member of the Pitt Computer Science Club."
     ]
   },
@@ -147,13 +170,17 @@ export const RADAR_SKILLS = [
 
 export const PROJECTS = [
   {
+    title: "KeyGuide",
+    description:
+      "A browser-based piano learning app with a 3-octave virtual keyboard, multiple practice modes, and a searchable song library with difficulty ratings. Built with Tone.js for audio synthesis and Web MIDI API support for real keyboard input.",
+    stack: ["React", "TypeScript", "Tone.js", "Vite", "Tailwind CSS", "Python"]
+  },
+  {
     title: "Queued",
     description:
       "A personalized watchlist platform that organizes movies and shows with smart filters and viewing analytics. Built with a Node/Express backend and a React + TypeScript UI.",
     link: "https://github.com/rTorresro/Queued",
     status: "WIP",
-    image: "queued-preview.jpg",
-    imageAlt: "Queued dashboard preview",
     stack: ["Node.js", "Express", "React", "TypeScript", "TMDB API"],
     outcomes: [
       "Built personalized watchlists with smart filters and preferences.",
@@ -165,8 +192,6 @@ export const PROJECTS = [
     description:
       "A real-time basketball court finder that helps players discover games, check in, and organize pickup runs. Built with React, Vite, Firebase, Leaflet, and Tailwind CSS.",
     link: "https://github.com/rTorresro/RunIt-Pittsburgh-",
-    image: "runit-preview.jpg",
-    imageAlt: "RunIt Pittsburgh map and courts preview",
     stack: ["React", "Vite", "Firebase", "Leaflet", "Tailwind CSS"],
     outcomes: [
       "Mapped courts with live check-ins and game status updates.",

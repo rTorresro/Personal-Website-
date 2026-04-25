@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Reveal from "../components/Reveal.jsx";
 import "./Contact.css";
 
 const FORMSPREE = "https://formspree.io/f/xvzppbqj";
@@ -39,7 +40,7 @@ export default function Contact() {
         </div>
       ) : (
         <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="contact-row">
+          <Reveal className="contact-row" delay={0}>
             <label className="contact-label" htmlFor="c-name">Name</label>
             <input
               id="c-name"
@@ -49,9 +50,9 @@ export default function Contact() {
               placeholder="Your name"
               required
             />
-          </div>
+          </Reveal>
 
-          <div className="contact-row">
+          <Reveal className="contact-row" delay={100}>
             <label className="contact-label" htmlFor="c-email">Email</label>
             <input
               id="c-email"
@@ -61,9 +62,9 @@ export default function Contact() {
               placeholder="you@example.com"
               required
             />
-          </div>
+          </Reveal>
 
-          <div className="contact-row">
+          <Reveal className="contact-row" delay={200}>
             <label className="contact-label" htmlFor="c-subject">Subject</label>
             <input
               id="c-subject"
@@ -72,9 +73,9 @@ export default function Contact() {
               className="contact-input"
               placeholder="What's this about?"
             />
-          </div>
+          </Reveal>
 
-          <div className="contact-row">
+          <Reveal className="contact-row" delay={300}>
             <label className="contact-label" htmlFor="c-message">Message</label>
             <textarea
               id="c-message"
@@ -84,7 +85,7 @@ export default function Contact() {
               rows="6"
               required
             />
-          </div>
+          </Reveal>
 
           {status === "error" && (
             <div className="contact-feedback contact-error">
@@ -92,13 +93,14 @@ export default function Contact() {
             </div>
           )}
 
-          <button
+          <Reveal as="button"
             type="submit"
             className="contact-submit"
             disabled={status === "loading"}
+            delay={400}
           >
             {status === "loading" ? "sending..." : "send message"}
-          </button>
+          </Reveal>
         </form>
       )}
     </section>

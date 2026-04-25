@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GlobeHero from "../components/GlobeHero.jsx";
+import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
 import "./Home.css";
 
@@ -96,11 +97,11 @@ export default function Home() {
         </div>
       </div>
       <div className="home-metrics">
-        {METRICS.map((m) => (
-          <div key={m.label} className="home-metric">
+        {METRICS.map((m, i) => (
+          <Reveal key={m.label} className="home-metric" delay={i * 100}>
             <span className="home-metric-value">{m.value}</span>
             <span className="home-metric-label">{m.label}</span>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
