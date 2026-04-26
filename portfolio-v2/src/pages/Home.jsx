@@ -3,6 +3,7 @@ import OceanHero from "../components/OceanHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
 import albumArt from "../assets/hotel-in-minsk.png";
+import resumePdf from "../assets/rogerresumeFIXED17.pdf?url";
 import "./Home.css";
 
 const SONG = {
@@ -95,8 +96,8 @@ export default function Home() {
           <div className="home-buttons">
             <a
               className="home-btn home-btn-primary"
-              href="/roger-torres-resume.pdf"
-              download
+              href={resumePdf}
+              download="Roger-Torres-Resume.pdf"
             >
               download resume
             </a>

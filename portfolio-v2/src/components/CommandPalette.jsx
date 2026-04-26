@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import resumePdf from "../assets/rogerresumeFIXED17.pdf?url";
 import "./CommandPalette.css";
 
 export default function CommandPalette() {
@@ -9,7 +10,7 @@ export default function CommandPalette() {
     { id: "projects",  icon: "fas fa-folder",    label: "Go to Projects",  group: "Navigate", action: () => window.setActiveSection?.("projects") },
     { id: "contact",   icon: "fas fa-envelope",  label: "Go to Contact",   group: "Navigate", action: () => window.setActiveSection?.("contact") },
     { id: "theme",     icon: "fas fa-circle-half-stroke", label: "Toggle Theme", group: "Actions", action: () => window.toggleTheme?.() },
-    { id: "resume-dl", icon: "fas fa-download",  label: "Download Resume", group: "Actions", action: () => { const a = document.createElement("a"); a.href = "/roger-torres-resume.pdf"; a.download = true; a.click(); } },
+    { id: "resume-dl", icon: "fas fa-download",  label: "Download Resume", group: "Actions", action: () => { const a = document.createElement("a"); a.href = resumePdf; a.download = "Roger-Torres-Resume.pdf"; a.click(); } },
     { id: "github",    icon: "fab fa-github",    label: "Open GitHub",     group: "Links",   action: () => window.open("https://github.com/rTorresro", "_blank") },
     { id: "linkedin",  icon: "fab fa-linkedin",  label: "Open LinkedIn",   group: "Links",   action: () => window.open("https://linkedin.com/in/rogertorresro", "_blank") },
     { id: "email",     icon: "fas fa-at",        label: "Send Email",      group: "Links",   action: () => window.open("mailto:rogertorressa@gmail.com") }
