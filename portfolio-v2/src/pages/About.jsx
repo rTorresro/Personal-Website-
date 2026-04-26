@@ -1,6 +1,6 @@
 import { ABOUT_PARTS, ABOUT_STATS } from "../data.js";
 import Reveal from "../components/Reveal.jsx";
-import profilePhoto from "../assets/profile.jpg";
+import profilePhoto from "../assets/profile.jpeg";
 import "./About.css";
 
 export default function About() {

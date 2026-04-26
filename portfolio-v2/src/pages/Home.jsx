@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GlobeHero from "../components/GlobeHero.jsx";
+import OceanHero from "../components/OceanHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
 import albumArt from "../assets/hotel-in-minsk.png";
@@ -78,6 +78,8 @@ function CyclingLabel() {
 export default function Home() {
   return (
     <section className="page-section page-home">
+      <OceanHero />
+      <div className="hero-overlay" aria-hidden="true" />
       <div className="home-main">
         <div className="home-text">
           <CyclingLabel />
@@ -135,9 +137,6 @@ export default function Home() {
           </div>
         </div>
         <div className="home-right">
-          <div className="home-globe">
-            <GlobeHero />
-          </div>
           <FavoriteSong />
         </div>
       </div>
