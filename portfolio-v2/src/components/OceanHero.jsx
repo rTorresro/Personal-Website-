@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Water } from "three/examples/jsm/objects/Water.js";
+import { Sky } from "three/examples/jsm/objects/Sky.js";
 
 export default function OceanHero() {
   const canvasRef = useRef(null);
@@ -34,22 +35,35 @@ export default function OceanHero() {
     renderer.setSize(W, H);
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.55;
+    renderer.toneMappingExposure = 0.5;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a141f);
-    scene.fog = new THREE.Fog(0x0a141f, 80, 1200);
+    scene.fog = new THREE.Fog(0x1a2030, 120, 1500);
 
     const camera = new THREE.PerspectiveCamera(55, W / H, 1, 20000);
     camera.position.set(0, 22, 100);
     camera.lookAt(0, 0, 0);
+
+    const sky = new Sky();
+    sky.scale.setScalar(450000);
+    sky.material.uniforms["turbidity"].value = 10;
+    sky.material.uniforms["rayleigh"].value = 2;
+    sky.material.uniforms["mieCoefficient"].value = 0.005;
+    sky.material.uniforms["mieDirectionalG"].value = 0.85;
+    scene.add(sky);
+
+    const sun = new THREE.Vector3();
+    const phi = THREE.MathUtils.degToRad(90 - 2);
+    const theta = THREE.MathUtils.degToRad(180);
+    sun.setFromSphericalCoords(1, phi, theta);
+    sky.material.uniforms["sunPosition"].value.copy(sun);
 
     const loader = new THREE.TextureLoader();
     let water;
     let normals;
 
     loader.load(
-      "/waternormals.jpg",
+      `${import.meta.env.BASE_URL}waternormals.jpg`,
       (texture) => {
         if (disposed) {
           texture.dispose();
@@ -62,9 +76,9 @@ export default function OceanHero() {
           textureWidth: reflectionRes,
           textureHeight: reflectionRes,
           waterNormals: normals,
-          sunDirection: new THREE.Vector3(0.3, 0.45, -0.4).normalize(),
-          sunColor:     0x9bb4d4,
-          waterColor:   0x10283f,
+          sunDirection: sun.clone().normalize(),
+          sunColor:     0xffd9b0,
+          waterColor:   0x0e2238,
           distortionScale: 3.7,
           fog: true,
           alpha: 1.0
@@ -103,6 +117,8 @@ export default function OceanHero() {
         water.geometry.dispose();
         water.material.dispose();
       }
+      sky.geometry.dispose();
+      sky.material.dispose();
       if (normals) normals.dispose();
       renderer.dispose();
     };
