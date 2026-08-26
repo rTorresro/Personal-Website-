@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import resumePdf from "../assets/rogerresumeFIXED17.pdf?url";
+import resumePdf from "../assets/rogerresumeFIXED21.pdf?url";
 import "./CommandPalette.css";
 
 export default function CommandPalette() {

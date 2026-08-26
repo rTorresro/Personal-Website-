@@ -118,11 +118,57 @@
   gap: 6px;
 }
 
+.timeline-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .timeline-title {
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 15px;
   color: var(--text);
+}
+
+/* ---- Entry logos ----
+   Both marks are wide wordmarks, so they share a fixed height and let width
+   run free; equal height is what makes them read as a set. */
+
+.timeline-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Full-bleed art that already sits on its own dark ground. The source has wide
+   dead margins, so zoom past `cover` to let the wordmark fill the chip. */
+.timeline-logo-bleed img {
+  display: block;
+  width: 84px;
+  height: 28px;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+/* Dark marks need a light plate to stay legible on the dark theme. */
+.timeline-logo-light {
+  padding: 0 5px;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-logo-light img {
+  display: block;
+  width: auto;
+  height: 22px;
+  object-fit: contain;
 }
 
 .timeline-meta {
@@ -159,6 +205,27 @@
 
   .timeline-bullets {
     font-size: 13px;
+  }
+
+  .timeline-title-row {
+    gap: 8px;
+  }
+
+  .timeline-logo {
+    height: 24px;
+  }
+
+  .timeline-logo-bleed img {
+    width: 72px;
+    height: 24px;
+  }
+
+  .timeline-logo-light {
+    padding: 0 4px;
+  }
+
+  .timeline-logo-light img {
+    height: 19px;
   }
 }
 

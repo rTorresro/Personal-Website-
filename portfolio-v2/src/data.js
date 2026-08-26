@@ -26,27 +26,22 @@ export const NAME_LETTERS = Array.from("Roger Torres");
 export const ABOUT_STATS = [
   { icon: "fas fa-map-marker-alt", value: "Pittsburgh, PA",            label: "Location"    },
   { icon: "fas fa-graduation-cap", value: "Univ. of Pittsburgh",       label: "University"  },
-  { icon: "fas fa-laptop-code",    value: "CS Freshman",               label: "Major & Year"},
+  { icon: "fas fa-laptop-code",    value: "CS Sophomore",              label: "Major & Year"},
   { icon: "fas fa-folder-open",    value: "7 Projects",                label: "Built"       },
   { icon: "fas fa-code",           value: "2+ Years",                  label: "Coding"      },
-  { icon: "fas fa-user",           value: "18",                        label: "Age"         }
+  { icon: "fas fa-user",           value: "19",                        label: "Age"         }
 ];
 
 export const ABOUT_PARTS = [
   {
-    label: "building",
+    label: "what i'm up to",
     text:
-      "I'm a CS student at Pitt (December 2028). I build full-stack software focused on clean UI and real-world utility. I was selected as an incoming TA for sophomore year, freelanced for a local business building their web presence, and competed in and won a university coding competition."
+      "I'm 19, a sophomore at Pitt studying CS with a Philosophy minor, and I expect to graduate in December 2028. Right now I'm a Software Development Intern at Synopsys, and this fall I'm also an Undergraduate TA for CS 0445 (Data Structures and Algorithms) and a CS Peer Tutor. On the side I've been freelancing for a local business, building out their web presence from scratch."
   },
   {
     label: "outside of code",
     text:
       "I'm into films and TV (Mr. Robot, The Wire, The Sopranos), anime and manga (Berserk, Vinland Saga, Dragon Ball Z), gaming, basketball, lifting, learning piano, cycling around Pittsburgh, music (Frank Ocean, Elliott Smith, Yung Lean), and philosophy. I'm also fluent in Spanish."
-  },
-  {
-    label: "goal",
-    text:
-      "I want to build software that solves real problems for real people, and I'm looking for opportunities to do that professionally."
   }
 ];
 
@@ -81,10 +76,12 @@ export const SKILL_GROUPS = [
       "React",
       "Next.js",
       "Node.js",
+      "Express",
       "FastAPI",
       "Flask",
       "Spring Boot",
-      "Streamlit"
+      "Streamlit",
+      "Tone.js"
     ]
   },
   {
@@ -107,19 +104,42 @@ export const SKILL_GROUPS = [
       "NumPy",
       "JUnit",
       "Linux",
-      "Maven"
+      "Maven",
+      "VS Code",
+      "IntelliJ"
     ]
   }
 ];
 
 export const EXPERIENCE = [
   {
+    title: "Software Development Intern",
+    org: "Synopsys",
+    location: "Canonsburg, PA (Hybrid)",
+    dates: "August 31 – December 11, 2026",
+    logo: "synopsys",
+    bullets: [
+      "Intern on the software development team at Synopsys, a leading provider of electronic design automation (EDA) software."
+    ]
+  },
+  {
     title: "Undergraduate Teaching Assistant",
     org: "University of Pittsburgh",
     location: "Pittsburgh, PA",
     dates: "August 2026 – Present",
+    logo: "pitt",
     bullets: [
       "Selected as an incoming TA for undergraduate CS instruction as a sophomore, supporting students through office hours, grading, and course material."
+    ]
+  },
+  {
+    title: "CS Peer Tutor",
+    org: "University of Pittsburgh",
+    location: "Pittsburgh, PA",
+    dates: "August 2026 – December 2026",
+    logo: "pitt",
+    bullets: [
+      "Provide one-on-one and small-group tutoring support to Computer Science students."
     ]
   },
   {
@@ -134,12 +154,27 @@ export const EXPERIENCE = [
   }
 ];
 
+export const LEADERSHIP = [
+  {
+    title: "Member",
+    org: "Pitt Computer Science Club",
+    location: "University of Pittsburgh",
+    dates: "August 2025 – Present",
+    logo: "pitt",
+    bullets: [
+      "Won the Pitt CSC × CGI Coding Competition, awarded $250 in prizes, competing against fellow CS students in a university-sponsored challenge.",
+      "Participate in weekly meetings, workshops, and speaker events."
+    ]
+  }
+];
+
 export const EDUCATION = [
   {
     school: "University of Pittsburgh",
     location: "Pittsburgh, PA",
     dates: "Expected December 2028",
     detail: "Bachelor of Science in Computer Science",
+    logo: "pitt",
     bullets: [
       "Relevant coursework: Data Structures & Algorithms, Computer Organization & Assembly Language, Mathematical Foundations of Machine Learning, Discrete Mathematics, Linear Algebra.",
       "Active member of the Pitt Computer Science Club."

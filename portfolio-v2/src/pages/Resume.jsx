@@ -1,6 +1,15 @@
-import { SKILL_GROUPS, EXPERIENCE, EDUCATION } from "../data.js";
+import { SKILL_GROUPS, EXPERIENCE, LEADERSHIP, EDUCATION } from "../data.js";
 import Reveal from "../components/Reveal.jsx";
+import synopsysLogo from "../assets/synopsyslogo.webp";
+import pittLogo from "../assets/pittlogo.png";
 import "./Resume.css";
+
+// `variant` picks the backing treatment: "bleed" for art that already carries its
+// own dark background, "light" for dark marks that need a light plate to read.
+const LOGOS = {
+  synopsys: { src: synopsysLogo, alt: "Synopsys", variant: "bleed" },
+  pitt:     { src: pittLogo,     alt: "University of Pittsburgh", variant: "light" },
+};
 
 const DEVICONS = {
   "Java":         "devicon-java-plain",
@@ -31,12 +40,21 @@ const DEVICONS = {
   "scikit-learn": "devicon-scikitlearn-plain",
 };
 
-function TimelineItem({ title, meta, bullets, delay = 0 }) {
+function TimelineItem({ title, meta, bullets, logo, delay = 0 }) {
+  const brand = logo ? LOGOS[logo] : null;
+
   return (
     <Reveal className="timeline-item" delay={delay}>
       <div className="timeline-dot" />
       <div className="timeline-content">
-        <h4 className="timeline-title">{title}</h4>
+        <div className="timeline-title-row">
+          {brand && (
+            <span className={`timeline-logo timeline-logo-${brand.variant}`}>
+              <img src={brand.src} alt={brand.alt} loading="lazy" />
+            </span>
+          )}
+          <h4 className="timeline-title">{title}</h4>
+        </div>
         <span className="timeline-meta">{meta}</span>
         {bullets.length > 0 && (
           <ul className="timeline-bullets">
@@ -90,6 +108,25 @@ export default function Resume() {
                 .filter(Boolean)
                 .join(" · ")}
               bullets={exp.bullets}
+              logo={exp.logo}
+              delay={i * 100}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="resume-section">
+        <h3 className="resume-section-title">Leadership &amp; Extracurriculars</h3>
+        <div className="timeline">
+          {LEADERSHIP.map((item, i) => (
+            <TimelineItem
+              key={i}
+              title={item.title}
+              meta={[item.org, item.location, item.dates]
+                .filter(Boolean)
+                .join(" · ")}
+              bullets={item.bullets}
+              logo={item.logo}
               delay={i * 100}
             />
           ))}
@@ -107,6 +144,7 @@ export default function Resume() {
                 .filter(Boolean)
                 .join(" · ")}
               bullets={edu.bullets}
+              logo={edu.logo}
               delay={i * 100}
             />
           ))}

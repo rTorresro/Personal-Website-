@@ -3,7 +3,7 @@ import OceanHero from "../components/OceanHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { METRICS } from "../data.js";
 import albumArt from "../assets/hotel-in-minsk.png";
-import resumePdf from "../assets/rogerresumeFIXED17.pdf?url";
+import resumePdf from "../assets/rogerresumeFIXED21.pdf?url";
 import "./Home.css";
 
 const SONG = {
@@ -89,9 +89,7 @@ export default function Home() {
             <span>torres</span>
           </h1>
           <p className="home-bio">
-            Computer Science student at the University of Pittsburgh. I build
-            full-stack applications with a focus on clean UI and dependable
-            systems.
+            Computer Science student at the University of Pittsburgh.
           </p>
           <div className="home-buttons">
             <a
