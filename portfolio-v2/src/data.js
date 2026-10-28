@@ -17,19 +17,11 @@ export const TERMINAL_LINES = [
 
 export const NAME_LETTERS = Array.from("Roger Torres");
 
-export const ABOUT_STATS = [
-  { icon: "fas fa-map-marker-alt", value: "Pittsburgh, PA",            label: "Location"    },
-  { icon: "fas fa-graduation-cap", value: "Univ. of Pittsburgh",       label: "University"  },
-  { icon: "fas fa-laptop-code",    value: "CS Sophomore",              label: "Major & Year"},
-  { icon: "fas fa-folder-open",    value: "7 Projects",                label: "Built"       },
-  { icon: "fas fa-code",           value: "2+ Years",                  label: "Coding"      }
-];
-
 export const ABOUT_PARTS = [
   {
     label: "what i'm up to",
     text:
-      "I'm 19, a sophomore at Pitt studying CS with a Philosophy minor, and I expect to graduate in December 2028. Right now I'm a Software Development Intern at Synopsys, and this fall I'm also an Undergraduate TA for CS 0445 (Data Structures and Algorithms) and a CS Peer Tutor. On the side I've been freelancing for a local business, building out their web presence from scratch."
+      "Hi, I'm Roger, a sophomore at Pitt studying CS with a Philosophy minor, and I expect to graduate in December 2028. Right now I'm a Software Development Intern at Synopsys, and this fall I'm also an Undergraduate TA for CS 0445 (Data Structures and Algorithms) and a CS Peer Tutor. On the side I've been freelancing for a local business, building out their web presence from scratch."
   },
   {
     label: "outside of code",

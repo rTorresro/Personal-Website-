@@ -1,4 +1,4 @@
-import { ABOUT_PARTS, ABOUT_STATS } from "../data.js";
+import { ABOUT_PARTS } from "../data.js";
 import Reveal from "../components/Reveal.jsx";
 import profilePhoto from "../assets/newprofile.jpeg";
 import "./About.css";
@@ -27,16 +27,6 @@ export default function About() {
             {i < ABOUT_PARTS.length - 1 && (
               <div className="about-part-divider" aria-hidden="true" />
             )}
-          </Reveal>
-        ))}
-      </div>
-
-      <div className="about-stats">
-        {ABOUT_STATS.map((s, i) => (
-          <Reveal key={s.label} className="about-card" delay={i * 100}>
-            <i className={`${s.icon} about-card-icon`} aria-hidden="true" />
-            <span className="about-card-value">{s.value}</span>
-            <span className="about-card-label">{s.label}</span>
           </Reveal>
         ))}
       </div>
