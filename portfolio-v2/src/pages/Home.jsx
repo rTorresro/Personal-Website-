@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import OceanHero from "../components/OceanHero.jsx";
-import Reveal from "../components/Reveal.jsx";
-import { METRICS } from "../data.js";
 import albumArt from "../assets/hotel-in-minsk.png";
-import resumePdf from "../assets/rogerresumeFIXED21.pdf?url";
+import resumePdf from "../assets/Roger_Torres_Resume.pdf?url";
 import "./Home.css";
 
 const SONG = {
@@ -89,7 +87,7 @@ export default function Home() {
             <span>torres</span>
           </h1>
           <p className="home-bio">
-            Computer Science student at the University of Pittsburgh.
+            Computer Science student at the University of Pittsburgh. Currently interning at Synopsys.
           </p>
           <div className="home-buttons">
             <a
@@ -138,14 +136,6 @@ export default function Home() {
         <div className="home-right">
           <FavoriteSong />
         </div>
-      </div>
-      <div className="home-metrics">
-        {METRICS.map((m, i) => (
-          <Reveal key={m.label} className="home-metric" delay={i * 100}>
-            <span className="home-metric-value">{m.value}</span>
-            <span className="home-metric-label">{m.label}</span>
-          </Reveal>
-        ))}
       </div>
     </section>
   );

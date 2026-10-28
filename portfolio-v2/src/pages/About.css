@@ -71,14 +71,31 @@
 .about-stats {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 12px;
   margin-top: 0.5rem;
+}
+
+.about-stats > * {
+  grid-column: span 2;
+}
+
+.about-stats > :nth-child(n + 4) {
+  grid-column: span 3;
 }
 
 @media (max-width: 640px) {
   .about-stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats > *,
+  .about-stats > :nth-child(n + 4) {
+    grid-column: span 1;
+  }
+
+  .about-stats > :last-child {
+    grid-column: span 2;
   }
 }
 

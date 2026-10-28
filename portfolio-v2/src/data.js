@@ -15,12 +15,6 @@ export const TERMINAL_LINES = [
   "Starting Roger.dev..."
 ];
 
-export const METRICS = [
-  { label: "Projects", value: "7" },
-  { label: "Core Stacks", value: "3" },
-  { label: "Years Building", value: "2+" }
-];
-
 export const NAME_LETTERS = Array.from("Roger Torres");
 
 export const ABOUT_STATS = [
@@ -28,8 +22,7 @@ export const ABOUT_STATS = [
   { icon: "fas fa-graduation-cap", value: "Univ. of Pittsburgh",       label: "University"  },
   { icon: "fas fa-laptop-code",    value: "CS Sophomore",              label: "Major & Year"},
   { icon: "fas fa-folder-open",    value: "7 Projects",                label: "Built"       },
-  { icon: "fas fa-code",           value: "2+ Years",                  label: "Coding"      },
-  { icon: "fas fa-user",           value: "19",                        label: "Age"         }
+  { icon: "fas fa-code",           value: "2+ Years",                  label: "Coding"      }
 ];
 
 export const ABOUT_PARTS = [
@@ -119,27 +112,21 @@ export const EXPERIENCE = [
     dates: "August 31 – December 11, 2026",
     logo: "synopsys",
     bullets: [
-      "Intern on the software development team at Synopsys, a leading provider of electronic design automation (EDA) software."
+      "Resolved a 14s UI freeze when right-clicking a selection of 2,000+ bodies, cutting the offending method from 82% to 0.12% of CPU time in profiling by adding an early-exit check in C# that stops at the first valid selection.",
+      "Reduced duplicate scripting API surface in SpaceClaim/Discovery by removing 18 redundant overloads and deprecating 30 more across 24 files, using optional parameters and Obsolete wrappers so existing user scripts kept working.",
+      "Automated adding new CoreService and DMS API versions with GitHub Copilot agents that reproduced 126 of 127 and 29 of 29 files from reference PRs in a single prompt, by testing against each reference, diffing the output, and rewriting the instructions until they matched.",
+      "Fixed a multi-selection bug in SpaceClaim/Discovery where transformations applied only to the first selected face, edge, or body, by reworking C# selection methods to support targets across multiple components, verified with an 8-test journal."
     ]
   },
   {
-    title: "Undergraduate Teaching Assistant",
+    title: "Undergraduate Teaching Assistant & Peer Tutor",
     org: "University of Pittsburgh",
     location: "Pittsburgh, PA",
     dates: "August 2026 – Present",
     logo: "pitt",
     bullets: [
-      "Selected as an incoming TA for undergraduate CS instruction as a sophomore, supporting students through office hours, grading, and course material."
-    ]
-  },
-  {
-    title: "CS Peer Tutor",
-    org: "University of Pittsburgh",
-    location: "Pittsburgh, PA",
-    dates: "August 2026 – December 2026",
-    logo: "pitt",
-    bullets: [
-      "Provide one-on-one and small-group tutoring support to Computer Science students."
+      "Serve as UTA for Data Structures & Algorithms, leading office hours and grading for 100+ students.",
+      "Tutor Computer Science students one-on-one and in small groups weekly, reinforcing core concepts across data structures, algorithms, and systems coursework."
     ]
   },
   {
@@ -205,9 +192,21 @@ export const RADAR_SKILLS = [
 
 export const PROJECTS = [
   {
+    title: "Rehearse",
+    description:
+      "A voice-driven mock technical interviewer where an AI interviewer talks through LeetCode-style problems in real time and sees your code and test results as you work.",
+    link: "https://github.com/rTorresro/Rehearse-",
+    stack: ["TypeScript", "Next.js", "React", "Node.js", "Express", "WebSockets", "OpenAI Realtime API", "Judge0"],
+    outcomes: [
+      "Built a Node/Express WebSocket server that syncs editor state to the interviewer and mints short-lived OpenAI Realtime tokens so API keys never reach the browser.",
+      "Integrated Judge0 to run Python, JavaScript, Java, and C++ against per-language test harnesses on 15 original problems, and generated scored feedback reports with Claude, backed by 19 test files."
+    ]
+  },
+  {
     title: "KeyGuide",
     description:
       "A browser-based piano learning app with a 3-octave virtual keyboard, multiple practice modes, and a searchable song library with difficulty ratings. Built with Tone.js for audio synthesis and Web MIDI API support for real keyboard input.",
+    link: "https://github.com/rTorresro/virtualpiano",
     stack: ["React", "TypeScript", "Tone.js", "Vite", "Tailwind CSS", "Python"]
   },
   {
@@ -237,6 +236,7 @@ export const PROJECTS = [
     title: "Pulseboard",
     description:
       "A task analytics dashboard that turns daily tracking into live metrics and streak insights. Spring Boot, React, TypeScript, and PostgreSQL.",
+    link: "https://github.com/rTorresro/pulseboard",
     status: "WIP",
     stack: ["Spring Boot", "React", "TypeScript", "PostgreSQL"],
     outcomes: [
